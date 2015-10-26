@@ -85,7 +85,7 @@
 		<table tableName="acctacctstathist">
 			<property name="DaoType" value="AcctDao" />
 			<generatedKey column="TIMEUNIQUEEXTN"
-				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from dual" />
+				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from  SYSIBM.SYSDUMMY1" />
 		</table>
 		<table tableName="acctkxhreg">
 			<property name="DaoType" value="AcctDao" />
@@ -99,7 +99,7 @@
 		<table tableName="acctaccthold">
 			<property name="DaoType" value="AcctDao" />
 			<generatedKey column="HOLDSEQNBR"
-				sqlStatement="select csii_sequencenextvalue('acctaccthold_holdseqnbr') from dual" />
+				sqlStatement="select csii_sequencenextvalue('acctaccthold_holdseqnbr') from  SYSIBM.SYSDUMMY1" />
 		</table>
 		<table tableName="acctacctholdreg">
 			<property name="DaoType" value="AcctDao" />
@@ -204,7 +204,7 @@
 		<table tableName="rtxnstathist">
 			<property name="DaoType" value="AcctDao" />
 			<generatedKey column="TIMEUNIQUEEXTN"
-				sqlStatement="select csii_sequencenextvalue('rtxnstathisttime_pk') from dual" />
+				sqlStatement="select csii_sequencenextvalue('rtxnstathisttime_pk') from  SYSIBM.SYSDUMMY1" />
 		</table>
 
 		<!-- 介质相关表 -->
@@ -222,6 +222,12 @@
 			<property name="DaoType" value="BizDataDao" />
 		</table>
 		<table tableName="agreementaccthist">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="mediprodamt">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="sleepmedi">
 			<property name="DaoType" value="BizDataDao" />
 		</table>
 		
@@ -278,6 +284,9 @@
 		<table tableName="persmail">
 			<property name="DaoType" value="PersmailDAO" />
 			<property name="sequence" value="MAILSEQ_PK" />
+		</table>
+		<table tableName="ecifdata" >
+			<property name="DaoType" value="BizDataDao" />
 		</table>
 
 		<table tableName="RPT_LOAN_AUTOPAYMENT">

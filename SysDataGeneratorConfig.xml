@@ -134,6 +134,7 @@
 		<table tableName="rtxnuserfield" />
 		<table tableName="rtxntypcat" />
 		<table tableName="rtxntyp" />
+		<table tableName="sourcertxntyp" />
 		<table tableName="rtxnstat" />
 		<table tableName="rtxnreason" />
 		<table tableName="rtxnsource" />
