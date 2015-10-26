@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="bizdata" targetRuntime="Ibatis2Java5">
+		<property name="AcctDao"
+			value="com.csii.bank.core.base.support.dao.IAccountDAO" />
+		<property name="MediDao" value="com.csii.bank.core.base.support.dao.IMediDAO" />
+		<property name="BizDataDao"
+			value="com.csii.bank.core.base.support.dao.IBizDataDAO" />
+		<property name="PersDao" value="com.csii.bank.core.base.support.dao.IPersDAO" />
+
+		<!-- lubiao：该插件将生成的table_sqlmap.xml文件配置到sqlMapConfig.xml中 -->
+		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
+			<property name="fileName" value="sqlMapConfigForBizData.xml" />
+			<property name="targetProject" value="Power-Core-Dao-BizData" />
+			<property name="targetPackage" value="config.sqlmap" />
+		</plugin>
+
+		<!-- lubiao：为生成的Dao添加@Repository注解 -->
+		<plugin type="com.csii.bank.core.generator.plugins.DaoAutoScanPlugin"></plugin>
+
+		<!-- lubiao: 控制DATE类型的column生成的jdbctype类型(DATE还是TIMESTAMP) -->
+		<plugin type="com.csii.bank.core.generator.plugins.DateTypeResolverPlugin"></plugin>
+
+		<!-- lubiao：为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 -->
+		<plugin type="com.csii.bank.core.generator.plugins.DatelastmaintPlugin"></plugin>
+
+		<!-- lubiao: 对DAO接口进行分类，便于进行访问控制 -->
+		<plugin type="com.csii.bank.core.generator.plugins.ExtendInterfacePlugin"></plugin>
+
+		<!-- lubiao: 对含有effdate和inactive的表自动生成查询当前有效记录的语句 -->
+		<plugin type="com.csii.bank.core.generator.plugins.EffDateQueryPlugin"></plugin>
+
+		<!-- lubiao: 生成sequence代码 -->
+		<plugin type="com.csii.bank.core.generator.plugins.SequenceGeneratorPlugin"></plugin>
+
+		<!-- 将sqlmap文件的表前缀统一设置为大写，主要是兼容mysql用 -->
+		<plugin type="com.csii.bank.core.generator.plugins.ToUpperCasePlugin"></plugin>
+
+		<plugin type="com.csii.bank.core.generator.plugins.LockStatmentPlugin"></plugin>
+
+		<plugin type="com.csii.bank.core.generator.plugins.PagingSelectPlugin"></plugin>
+
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+		<commentGenerator>
+			<!-- lubiao: suppressAllComments必须置为false，否则自动生成的java file不会自动 merge -->
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@172.16.0.25:1521:powercore" userId="csiibank"
+			password="csiibank" />
+
+		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
+		<javaTypeResolver
+			type="com.csii.bank.core.generator.tools.JavaTypeResolverPowerImpl">
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.csii.bank.core.bizdata.model.generate"
+			targetProject="Power-Core-Dao-BizData" />
+
+		<sqlMapGenerator targetPackage="com.csii.bank.core.dao.bizdata.generate.impl"
+			targetProject="Power-Core-Dao-BizData">
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.csii.bank.core.dao.bizdata.generate"
+			targetProject="Power-Core-Dao-BizData" type="SPRING"
+			implementationPackage="com.csii.bank.core.dao.bizdata.generate.impl">
+		</javaClientGenerator>
+
+		<!-- 账户信息相关表 -->
+		<table tableName="acct" enableDeleteByExample="false"
+			enableDeleteByPrimaryKey="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableSelectByExample="false"
+			enableSelectByPrimaryKey="false">
+			<property name="DaoType" value="AcctDao" />
+			<property name="sequence" value="ACCTNBR_PK" />
+			<property name="lock" value="true" />
+		</table>
+		<table tableName="acctmiaccthist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctacctstathist">
+			<property name="DaoType" value="AcctDao" />
+			<generatedKey column="TIMEUNIQUEEXTN"
+				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from dual" />
+		</table>
+		<table tableName="acctkxhreg">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctsubacct">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctbalhist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctaccthold">
+			<property name="DaoType" value="AcctDao" />
+			<generatedKey column="HOLDSEQNBR"
+				sqlStatement="select csii_sequencenextvalue('acctaccthold_holdseqnbr') from dual" />
+		</table>
+		<table tableName="acctacctholdreg">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctacctroleorg">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctinthist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctacctcycleappl">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctlockout">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctautoloanpmtinfo">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctautoloanpmtinfobalcattyp">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctcalcvar">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctclatacct">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctgrp">
+			<property name="DaoType" value="AcctDao" />
+			<property name="sequence" value="ACCTGRPNBR_PK" />
+		</table>
+		<table tableName="acctgrpacct">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctgrpacctstat">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctgrpcalcvar">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctintbalhist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctloan">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctloanexthist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctloanlimithist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctloanpmttyphist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctmemobaltyp">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctpmttyphist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctpmttypsubaccthist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctratehist">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctrcvb">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctrcvbpmt">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctsubacctcalcvar">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctuserfield">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctwrn">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctitl">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="acctdeductreg">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+
+		<!-- 账户流水相关表 -->
+		<table tableName="rtxn">
+			<property name="DaoType" value="AcctDao" />
+			<property name="lock" value="true" />
+		</table>
+		<table tableName="rtxnbal">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="rtxnfundtyp">
+			<property name="DaoType" value="AcctDao" />
+		</table>
+		<table tableName="rtxnstathist">
+			<property name="DaoType" value="AcctDao" />
+			<generatedKey column="TIMEUNIQUEEXTN"
+				sqlStatement="select csii_sequencenextvalue('rtxnstathisttime_pk') from dual" />
+		</table>
+
+		<!-- 介质相关表 -->
+		<table tableName="medi" enableDeleteByExample="false"
+			enableDeleteByPrimaryKey="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false">
+			<property name="DaoType" value="MediDao" />
+			<property name="lock" value="true" />
+			<property name="sequence" value="MEDISEQ_PK" />
+		</table>
+		<table tableName="mediacct">
+			<property name="DaoType" value="MediDao" />
+		</table>
+		<table tableName="agreementacct">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="agreementaccthist">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		
+		<!-- 绑定卡信息表 -->
+		<table tableName="medibankcard">
+			<property name="DaoType" value="MediDao" />
+		</table>
+
+		<!-- 分支机构相关表 -->
+		<table tableName="branch">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="branchcalcvar">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="branchgroup">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="contractinfo">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="lmthold">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="lmttxn">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+
+		<!-- 个人客户相关表 -->
+		<table tableName="pers" enableDeleteByExample="false"
+			enableDeleteByPrimaryKey="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false">
+			<property name="DaoType" value="PersDao" />
+			<property name="sequence" value="PERSNBR_PK" />
+			<property name="lock" value="true" />
+		</table>
+		<table tableName="persid">
+			<property name="DaoType" value="PersDao" />
+		</table>
+		<table tableName="persaddruse">
+			<property name="DaoType" value="PersDao" />
+		</table>
+		<table tableName="addrline">
+			<property name="DaoType" value="PersDao" />
+		</table>
+		<table tableName="persphone">
+			<property name="DaoType" value="PersphoneDAO" />
+			<property name="sequence" value="PHONESEQ_PK" />
+		</table>
+		<table tableName="addr">
+			<property name="DaoType" value="AddrDAO" />
+			<property name="sequence" value="ADDRNBR_PK" />
+		</table>
+		<table tableName="persmail">
+			<property name="DaoType" value="PersmailDAO" />
+			<property name="sequence" value="MAILSEQ_PK" />
+		</table>
+
+		<table tableName="RPT_LOAN_AUTOPAYMENT">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+
+		<table tableName="RPT_GL_FTI4XTK_BATCH_NOPROC">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		
+		<table tableName="RPT_GL_FTI4XTK_BATCH">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+
+		<!-- 批量相关 -->
+		<table tableName="queapplerror">
+			<property name="sequence" value="queapplerror_seq" />
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+		<table tableName="queapplhist">
+			<property name="DaoType" value="BizDataDao" />
+			<property name="sequence" value="BATCH_RUNQUE_SEQNBR" />
+			<property name="isNeedPaging" value="true" />
+		</table>
+
+		<table tableName="chanrtxn">
+			<property name="DaoType" value="BizDataDao" />
+			<property name="sequence" value="TXNSEQID_SEQ" />
+		</table>
+
+		<table tableName="RPT_GLINT_PROCESS">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+
+		<table tableName="batchtest">
+			<property name="DaoType" value="BizDataDao" />
+		</table>
+	</context>
+</generatorConfiguration>

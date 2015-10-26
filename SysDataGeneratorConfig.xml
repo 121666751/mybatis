@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="sysdata" targetRuntime="Ibatis2Java5">
+		<!-- lubiao：该插件将生成的table_sqlmap.xml文件配置到sqlMapConfig.xml中 -->
+		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
+			<property name="fileName" value="sqlMapConfigForSysData.xml" />
+			<property name="targetProject" value="Power-Core-Dao-SysData" />
+			<property name="targetPackage" value="config.sqlmap" />
+		</plugin>
+
+		<!-- lubiao：为生成的Dao添加@Repository注解 -->
+		<plugin type="com.csii.bank.core.generator.plugins.DaoAutoScanPlugin"></plugin>
+
+		<!-- lubiao: 控制DATE类型的column生成的jdbctype类型(DATE还是TIMESTAMP) -->
+		<plugin type="com.csii.bank.core.generator.plugins.DateTypeResolverPlugin"></plugin>
+
+		<!-- lubiao: 为sqlmap文件添加cache功能 -->
+		<plugin type="com.csii.bank.core.generator.plugins.CachePlugin"></plugin>
+
+		<!-- lubiao：为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 -->
+		<plugin type="com.csii.bank.core.generator.plugins.DatelastmaintPlugin"></plugin>
+
+		<!-- lubiao: 对DAO接口进行分类，便于进行访问控制 -->
+		<plugin type="com.csii.bank.core.generator.plugins.ExtendInterfacePlugin"></plugin>
+
+		<!-- lubiao: 对含有effdate和inactive的表自动生成查询当前有效记录的语句 -->
+		<plugin type="com.csii.bank.core.generator.plugins.EffDateQueryPlugin"></plugin>
+
+		<!-- lubiao: 生成sequence代码 -->
+		<plugin type="com.csii.bank.core.generator.plugins.SequenceGeneratorPlugin"></plugin>
+		
+		<!-- 将sqlmap文件的表前缀统一设置为大写，主要是兼容mysql用 -->
+		<plugin type="com.csii.bank.core.generator.plugins.ToUpperCasePlugin"></plugin>
+		
+		<plugin type="com.csii.bank.core.generator.plugins.PagingSelectPlugin"></plugin>
+		
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+		
+		<commentGenerator>
+			<!-- lubiao: suppressAllComments必须置为false，否则自动生成的java file不会自动 merge -->
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@172.16.0.25:1521:powercore" userId="csiibank"
+			password="csiibank" />
+
+		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
+		<javaTypeResolver
+			type="com.csii.bank.core.generator.tools.JavaTypeResolverPowerImpl">
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.csii.bank.core.sysdata.model.generate"
+			targetProject="Power-Core-Dao-SysData" />
+
+		<sqlMapGenerator targetPackage="com.csii.bank.core.dao.sysdata.generate.impl"
+			targetProject="Power-Core-Dao-SysData">
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.csii.bank.core.dao.sysdata.generate"
+			targetProject="Power-Core-Dao-SysData" type="SPRING"
+			implementationPackage="com.csii.bank.core.dao.sysdata.generate.impl">
+		</javaClientGenerator>
+
+		<!-- 产品参数相关表 -->
+		<table tableName="mjaccttypcat" />
+		<table tableName="mjaccttypcatclosereason" />
+		<table tableName="mjaccttyp" />
+		<table tableName="mjmiaccttyp" />
+		<table tableName="mjmiacctbalcattyp" />
+		<table tableName="mjmiacctinthist" />
+		<table tableName="mjmiacctintrule" />
+		<table tableName="mjmiacctappl" />
+		<table tableName="mjmiacctcalcvar" />
+		<table tableName="mjmiacctgenrtxn" />
+		<table tableName="mjmiacctgl" />
+		<table tableName="mjmiacctratehist" />
+		<table tableName="mjmiacctrtxngl" />
+		<table tableName="mjmiacctrtxntyp" />
+		<table tableName="mjmiacctrtxntypattradd" />
+		<table tableName="mjmiaccttypofferhist" />
+		<table tableName="mjmiacctuserfield" />
+		<table tableName="mjmibalcatcalcvar" />
+		<table tableName="mjmipmtsched" />
+		<table tableName="mjmiaccttypitl"/>
+		<table tableName="dbproductcd"/>
+		<table tableName="fundrtxn" />		
+
+		<!-- 余额类型相关 -->
+		<table tableName="balcat" />
+		<table tableName="balcatbaltyp" />
+		<table tableName="baldire" />
+		<table tableName="baltyp" />
+		<table tableName="baltyprtxntypgl" />
+
+		<!-- 资金类型相关 -->
+		<table tableName="fundsource" />
+		<table tableName="fundtyp" />
+		<table tableName="fundtypdtl" />
+		<table tableName="fundtypdtlglacct" />
+		<table tableName="fundtypglacct" />
+
+		<!-- 计算变量相关 -->
+		<table tableName="calcamttyp" />
+		<table tableName="calcbaltyp" />
+		<table tableName="calccat" />
+		<table tableName="calctyp" />
+		<table tableName="calctypvar" />
+		<table tableName="calctypvarvalue" />
+		<table tableName="calcvar" />
+		<table tableName="calcvarvalue" />
+		<table tableName="calcsched" />
+		<table tableName="calcschedcat" />
+		<table tableName="calcschedpurp" />
+		<table tableName="calcschedtier" />
+		<table tableName="calcschedtierbal" />
+		<table tableName="calcschedtiercalcmeth" />
+		<table tableName="calcschedtierrate" />
+		<table tableName="calday" />
+		<table tableName="calmonth" />
+		<table tableName="calperiodunit" />
+		<table tableName="calperiod" />
+		<table tableName="term" />
+		<table tableName="calweek" />
+		<table tableName="calyear" />
+		<table tableName="calyearmonth" />
+		<table tableName="calcschedtiercalcsched"></table>
+
+		<!-- 交易参数相关 -->
+		<table tableName="rtxntypgrp" />
+		<table tableName="rtxntypgrprtxntyp" />
+		<table tableName="rtxnuserfield" />
+		<table tableName="rtxntypcat" />
+		<table tableName="rtxntyp" />
+		<table tableName="rtxnstat" />
+		<table tableName="rtxnreason" />
+		<table tableName="rtxnsource" />
+		<table tableName="closereason" />
+		<table tableName="lockoutflag" />
+		<table tableName="lockoutflagrtxntyp" />
+		<table tableName="rtxnexcp" />
+		<table tableName="reversaltyp" />
+		<table tableName="hupstat" />
+
+		<!-- 账户层参数相关 -->
+		<table tableName="wrnflag" />
+		<table tableName="acctgrptyp" />
+		<table tableName="accthold" />
+		<table tableName="acctholdmeth" />
+		<table tableName="acctholdreason" />
+		<table tableName="acctstat" />
+		<table tableName="lmtstat" />
+
+		<!-- 基础参数相关 -->
+		<table tableName="bankoptioncat" />
+		<table tableName="bankoption" />
+		<table tableName="bankoptionvalue" />
+		<table tableName="bankorgcalendar" />
+		<table tableName="bankorgholidaydate" />
+		<table tableName="bankorgweekday" />
+		<table tableName="bankorgyearmonthday" />
+		<table tableName="bankpersweekday" />
+		<table tableName="branchlev" />
+		<table tableName="branchtyp" />
+		<table tableName="grpcat" />
+		<table tableName="grpcattyp" />
+		<table tableName="grpcattypcalcvar" />
+		<table tableName="grpcattypuserfield" />
+		<table tableName="grpcattypvalidhist" />
+		<table tableName="grpstattyp" />
+		<table tableName="currency" />
+		<table tableName="weekday" />
+		<table tableName="availmeth" />
+		<table tableName="holiday" />
+		<table tableName="rndmeth" />
+		<table tableName="nameth" />
+		<table tableName="onlbatmeth" />
+
+		<!-- 客户层参数相关 -->
+		<table tableName="userfield" />
+		<table tableName="userfieldvalue" />
+		<table tableName="ownertyp" />
+		<table tableName="owntyp" />
+		<table tableName="custlvl" />
+		<table tableName="custlvllmt" />
+
+		<!-- 贷款相关 -->
+		<table tableName="purp" />
+		<table tableName="loansource" />
+		<table tableName="rcvbgenmeth" />
+		<table tableName="rcvbstat" />
+		<table tableName="pmtsched" />
+		<table tableName="pmtschedtyp" />
+		<table tableName="pmtschedtyppmttyp" />
+		<table tableName="pmtspd" />
+		<table tableName="pmttyp" />
+
+		<!-- 总账相关 -->
+		<table tableName="glacct">
+			<property name="sequence" value="GLACCTGLACCTNBRSEQ"/>
+		</table>
+		<table tableName="glacctproofhist" />
+		<table tableName="glaccttitle" />
+		<table tableName="glaccttyp" />
+
+		<!-- 利率利息相关 -->
+		<table tableName="ratechangecalper" />
+		<table tableName="ratechangeeffmeth" />
+		<table tableName="ratechangemeth" />
+		<table tableName="rateeffecttyp" />
+		<table tableName="ratemeth" />
+		<table tableName="ratetyp" />
+		<table tableName="interestbase" />
+		<table tableName="intmeth" />
+		<table tableName="intraterecalcmeth" />
+
+		<!-- 介质（卡）相关 -->
+		<table tableName="cardagreementtyp"></table>
+
+		<!-- 批量相关 -->
+		<table tableName="que"></table>
+		<table tableName="queappl"></table>
+		<table tableName="queapplacctcycle"></table>
+		<table tableName="queapplparam"></table>
+		<table tableName="appl"></table>
+		<table tableName="applparameter"></table>
+		<table tableName="applparametervalue"></table>
+		<table tableName="parameter"></table>
+		<table tableName="applappl"></table>
+		<table tableName="batch_parameter_config"></table>
+
+		<table tableName="dynmsg">
+			<property name="sequence" value="DYNMSG_PK"/>
+		</table>
+	</context>
+</generatorConfiguration>

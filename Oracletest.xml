@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="mysql" targetRuntime="Ibatis2Java5">
+
+		<!-- lubiao：该插件将生成的table_sqlmap.xml文件配置到sqlMapConfig.xml中 -->
+		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
+			<property name="fileName" value="sqlMapConfigForMysql.xml" />
+			<property name="targetProject" value="MyBatisGenerator" />
+			<property name="targetPackage" value="config.sqlmap" />
+		</plugin>
+
+		<!-- lubiao：为生成的Dao添加@Repository注解 -->
+		<plugin type="com.csii.bank.core.generator.plugins.DaoAutoScanPlugin"></plugin>
+
+		<!-- lubiao: 控制DATE类型的column生成的jdbctype类型(DATE还是TIMESTAMP) -->
+		<plugin type="com.csii.bank.core.generator.plugins.DateTypeResolverPlugin"></plugin>
+
+		<plugin type="com.csii.bank.core.generator.plugins.ToUpperCasePlugin"></plugin>
+
+		<commentGenerator>
+			<!-- lubiao: suppressAllComments必须置为false，否则自动生成的java file不会自动 merge -->
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@127.0.0.1:1521/powertest" userId="csiibank"
+			password="csiibank" />
+
+		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
+		<javaTypeResolver
+			type="com.csii.bank.core.generator.tools.JavaTypeResolverPowerImpl">
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.csii.backstagems.bean"
+			targetProject="MyBatisGenerator" />
+
+		<sqlMapGenerator targetPackage="com.csii.backstagems.dao.impl"
+			targetProject="MyBatisGenerator">
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.csii.backstagems.dao"
+			targetProject="MyBatisGenerator" type="SPRING"
+			implementationPackage="com.csii.backstagems.dao.impl">
+		</javaClientGenerator>
+
+<!-- 		<table tableName="AUTH"></table> -->
+<!-- 		<table tableName="AUTHAUTHITEM"></table> -->
+<!-- 		<table tableName="AUTHAUTHITEMMENUITEMELEMENT"></table> -->
+<!-- 		<table tableName="AUTHITEM"></table> -->
+<!-- 		<table tableName="AUTHITEMEXCLUAUTHITEM"></table> -->
+<!-- 		<table tableName="ELEMENT"></table> -->
+<!-- 		<table tableName="ENUMRATION"></table> -->
+<!-- 		<table tableName="MENUITEM"></table> -->
+<!-- 		<table tableName="MENUITEMELEMENT"></table> -->
+<!-- 		<table tableName="TELLER"></table> -->
+<!-- 		<table tableName="TELLERUSERSIGNONHIST"></table> -->
+			<table tableName="MJMICALCVAR"></table>
+			<table tableName="MJMICALCTYP"></table>
+			<table tableName="MJMIACCTCALCTYPVAR"></table>
+	</context>
+</generatorConfiguration>
