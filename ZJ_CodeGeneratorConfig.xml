@@ -40,8 +40,8 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@172.16.0.25:1521:powercore" userId="csiibankzj"
-			password="csiibankzj" />
+			connectionURL="jdbc:oracle:thin:@192.168.15.101:1521:NETBANK" userId="CSIIBANKZJ"
+			password="CSIIBANKZJ" />
 
 		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
 		<javaTypeResolver
@@ -209,7 +209,7 @@
 		<table tableName="acctstat" />
 		<table tableName="acctacctstathist">
 			<generatedKey column="TIMEUNIQUEEXTN"
-				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from dual" />
 		</table>
 		<table tableName="acctbal" />
 		<table tableName="acctbaldtl" />
@@ -217,7 +217,7 @@
 		<!-- 司法冻结扣划信息 -->
 		<table tableName="acctaccthold">
 			<generatedKey column="HOLDSEQNBR"
-				sqlStatement="select csii_sequencenextvalue('acctaccthold_holdseqnbr') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="select csii_sequencenextvalue('acctaccthold_holdseqnbr') from dual" />
 		</table>
 		<table tableName="acctacctholdreg" />
 		<table tableName="accthold" />
