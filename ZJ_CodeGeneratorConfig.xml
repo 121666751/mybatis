@@ -440,5 +440,21 @@
 		<!--############################## 批量相关 ############################## -->
 		<table tableName="batch_parameter_config"/>
 		<table tableName="parameter"/>
+		<!--############################## 积分相关表 ############################## -->
+		<table tableName="mjmiaccttypintegral"/>
+		<table tableName="integralruleevent"/>
+		<table tableName="integralevent"/>
+		<table tableName="integraltradinanginfo"/>
+		<table tableName="integralreg"/>
+		<table tableName="eventtyp"/>
+		<table tableName="integralstat"/>
+		<table tableName="integraltyp"/>
+		<table tableName="integralvalue"/>
+		<table tableName="integraltypvalue"/>	
+		<table tableName="integralrules"/>
+		
+		
+		
+		
 	</context>
 </generatorConfiguration>
