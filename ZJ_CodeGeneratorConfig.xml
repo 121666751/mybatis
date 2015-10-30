@@ -16,7 +16,7 @@
 		<plugin type="com.csii.bank.core.generator.plugins.DateTypeResolverPlugin"></plugin>
 
 		<!-- lubiao: 为sqlmap文件添加cache功能 -->
-		<plugin type="com.csii.bank.core.generator.plugins.CachePlugin"></plugin>
+<!-- 		<plugin type="com.csii.bank.core.generator.plugins.CachePlugin"></plugin> -->
 
 		<!-- lubiao：为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 -->
 		<plugin type="com.csii.bank.core.generator.plugins.DatelastmaintPlugin"></plugin>
