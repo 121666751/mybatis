@@ -188,8 +188,7 @@
 		<!--############################## 存款账户基本信息 ############################## -->
 		<!-- 电子账户基本信息 -->
 		<table tableName="medi" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
-			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableSelectByExample="false"
-			enableSelectByPrimaryKey="false">
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" >
 			<property name="lock" value="true" />
 			<property name="sequence" value="MEDISEQ_PK" />
 		</table>
@@ -379,8 +378,7 @@
 		<!--############################## 客户信息 ############################## -->
 		<!-- 个人客户信息 -->
 		<table tableName="pers" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
-			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableSelectByExample="false"
-			enableSelectByPrimaryKey="false">
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" >
 			<property name="sequence" value="PERSNBR_PK" />
 			<property name="lock" value="true" />
 		</table>
