@@ -227,7 +227,10 @@
 		<table tableName="accthold" />
 		<table tableName="acctdeduct" />
 		<!-- 控制信息 -->
-		<table tableName="acctacctctrl" />
+		<table tableName="acctacctctrl">  
+			<property name="sequence" value="CTRLSEQNO_PK" />
+		</table>
+		
 		<table tableName="acctacctctrlreg" />
 		<table tableName="acctctrl" />
 		<table tableName="acctctrlmeth" />
