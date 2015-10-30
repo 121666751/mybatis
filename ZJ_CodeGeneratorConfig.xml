@@ -187,7 +187,9 @@
 
 		<!--############################## 存款账户基本信息 ############################## -->
 		<!-- 电子账户基本信息 -->
-		<table tableName="medi">
+		<table tableName="medi" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableSelectByExample="false"
+			enableSelectByPrimaryKey="false">
 			<property name="lock" value="true" />
 			<property name="sequence" value="MEDISEQ_PK" />
 		</table>
@@ -201,7 +203,9 @@
 		<table tableName="medisealtyp" />
 		<table tableName="medisealreg" />
 		<!-- 账户基本信息 -->
-		<table tableName="acctdep">
+		<table tableName="acctdep" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableSelectByExample="false"
+			enableSelectByPrimaryKey="false">
 			<property name="sequence" value="ACCTNBR_PK" />
 			<property name="lock" value="true" />
 		</table>
@@ -371,7 +375,9 @@
 
 		<!--############################## 客户信息 ############################## -->
 		<!-- 个人客户信息 -->
-		<table tableName="pers">
+		<table tableName="pers" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableSelectByExample="false"
+			enableSelectByPrimaryKey="false">
 			<property name="sequence" value="PERSNBR_PK" />
 			<property name="lock" value="true" />
 		</table>
