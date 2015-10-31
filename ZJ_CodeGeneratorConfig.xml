@@ -459,6 +459,7 @@
 		<table tableName="integralvalue"/>
 		<table tableName="integraltypvalue"/>	
 		<table tableName="integralrules"/>
+		<table tableName="integralusereg"/>
 		
 		
 		
