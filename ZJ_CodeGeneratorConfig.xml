@@ -230,7 +230,9 @@
 			<property name="sequence" value="CTRLSEQNO_PK" />
 		</table>
 		
-		<table tableName="acctacctctrlreg" />
+		<table tableName="acctacctctrlreg">
+			<property name="sequence" value="ACCTACCTCTRLREG_SEQNBR" />
+		</table>
 		<table tableName="acctctrl" />
 		<table tableName="acctctrlmeth" />
 		<table tableName="acctctrlreason" />
