@@ -324,7 +324,10 @@
 		<table tableName="calcsched" />
 		<table tableName="calcschedspreadcalcsched" />
 		<table tableName="calcschedtierbal" />
-		<table tableName="calcschedpricrate" />
+		<table tableName="calcschedpricrate" >
+			<generatedKey column="SEQNBR"
+				sqlStatement="select csii_sequencenextvalue('CALCSCHEDPRICRATE_SEQNBR') from dual" />
+		</table>
 		<table tableName="calcschedtierrate" />
 
 
