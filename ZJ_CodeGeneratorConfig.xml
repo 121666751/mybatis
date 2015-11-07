@@ -454,7 +454,6 @@
 		<!--############################## 积分相关表 ############################## -->
 		<table tableName="mjmiaccttypintegral"/>
 		<table tableName="integralruleevent"/>
-		<table tableName="integralevent"/>
 		<table tableName="integraltradinanginfo"/>
 		<table tableName="integralreg"/>
 		<table tableName="eventtyp"/>
@@ -464,7 +463,10 @@
 		<table tableName="integraltypvalue"/>	
 		<table tableName="integralrules"/>
 		<table tableName="integralusereg"/>
-		
+		<table tableName="integralevent">
+			<generatedKey column="EVENTNBR"
+				sqlStatement="select csii_sequencenextvalue('EVENTNBRSEQ_PK') from dual" />
+		</table>
 		
 		<table tableName="payintmeth"></table>
 		
