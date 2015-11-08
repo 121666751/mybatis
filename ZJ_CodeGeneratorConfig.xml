@@ -321,7 +321,10 @@
 
 
 		<!--############################## 利率 ############################## -->
-		<table tableName="calcsched" />
+		<table tableName="calcsched" >
+			<generatedKey column="CALCSCHEDNBR"
+				sqlStatement="select csii_sequencenextvalue('CALCSCHEDNBR_SEQ') from dual" />
+		</table>
 		<table tableName="calcschedspreadcalcsched" />
 		<table tableName="calcschedtierbal" />
 		<table tableName="calcschedpricrate" >
