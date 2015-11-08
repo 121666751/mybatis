@@ -332,8 +332,6 @@
 				sqlStatement="select csii_sequencenextvalue('CALCSCHEDPRICRATE_SEQNBR') from dual" />
 		</table>
 		<table tableName="calcschedtierrate" >
-			<generatedKey column="CALCTIERNBR"
-				sqlStatement="select csii_sequencenextvalue('CALCTIERNBR_SEQ') from dual" />
 		</table>
 
 
