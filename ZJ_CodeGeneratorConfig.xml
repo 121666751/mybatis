@@ -474,5 +474,15 @@
 		
 		<table tableName="payintmeth"></table>
 		<table tableName="INTEGRALBINDCARD"></table>
+		
+		<!--############################## 红包相关 ############################## -->
+		<table tableName="MJMIACCTTYPBRIBERY"/>
+		<table tableName="BRIBERYPREPAREREG">
+			<generatedKey column="SEQNBR"
+				sqlStatement="select csii_sequencenextvalue('BRIBERYPREPAREREG_SEQNBR') from dual" />
+		</table>
+		<table tableName="BRIBERYSHAREREG"/>
+		<table tableName="GETBRIBERYREG"/>
+		<table tableName="MJMIACCTTYPBRIBERY" />
 	</context>
 </generatorConfiguration>
