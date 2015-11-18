@@ -473,6 +473,6 @@
 		</table>
 		
 		<table tableName="payintmeth"></table>
-		
+		<table tableName="INTEGRALBINDCARD"></table>
 	</context>
 </generatorConfiguration>
