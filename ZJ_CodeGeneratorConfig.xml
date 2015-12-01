@@ -38,10 +38,16 @@
 			<!-- lubiao: suppressAllComments必须置为false，否则自动生成的java file不会自动 merge -->
 			<property name="suppressAllComments" value="false" />
 		</commentGenerator>
-
-		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+		
+		<!-- FOR ORACLE 2015-12-01 SLY-->
+		<!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
 			connectionURL="jdbc:oracle:thin:@192.168.15.101:1521:NETBANK" userId="CSIIBANKZJ"
-			password="CSIIBANKZJ" />
+			password="CSIIBANKZJ" /> -->
+			
+		<!-- FOR DB2 2015-12-01 SLY-->	
+		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
+			connectionURL="jdbc:db2://192.168.191.4:50000/PCOREDB:currentSchema=PCORE;" userId="pcore"
+			password="pcore" />
 
 		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
 		<javaTypeResolver
@@ -202,17 +208,28 @@
 		<table tableName="medisealtyp" />
 		<table tableName="medisealreg" />
 		<!-- 账户基本信息 -->
+		<!-- <table tableName="acctdep" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableSelectByExample="false" -->
+		<!-- FOR DB2 2015-12-01 SLY -->
+		<!-- 在换成DB2数据库后,重新生成代码,acctdepDao中没有selectByExample这个方法,程序报错,把"enableSelectByExample="false""删除后生成selectByExample方法-->
 		<table tableName="acctdep" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
-			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableSelectByExample="false"
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false"
 			enableSelectByPrimaryKey="false">
 			<property name="sequence" value="ACCTNBR_PK" />
 			<property name="lock" value="true" />
 		</table>
-		<table tableName="acctkxhreg" />
+		<table tableName="acctkxhreg" >
+			<generatedKey column="ACCTKXHSEQNBR"
+				sqlStatement="select csii_sequencenextvalue('ACCTKXHREG_SEQNBR') from  SYSIBM.SYSDUMMY1" />
+		</table>
 		<table tableName="acctstat" />
 		<table tableName="acctacctstathist">
+			<!-- FOR ORACLE 2015-12-01 SLY -->
+			<!-- <generatedKey column="TIMEUNIQUEEXTN"
+				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from dual" /> -->
+			<!-- FOR DB2 2015-12-01 SLY -->
 			<generatedKey column="TIMEUNIQUEEXTN"
-				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from dual" />
+				sqlStatement="select csii_sequencenextvalue('acctacctstathisttime_pk') from  SYSIBM.SYSDUMMY1" />
 		</table>
 		<table tableName="acctbal" />
 		<table tableName="acctbaldtl" />
@@ -223,7 +240,10 @@
 		</table>
 		<table tableName="acctacctholdreg" />
 		<table tableName="accthold" />
-		<table tableName="acctdeduct" />
+		<table tableName="acctdeduct" >
+			<generatedKey column="DEDUCTSEQNO"
+				sqlStatement="select csii_sequencenextvalue('ACCTDEDUCT_DEDUCTSEQNO') from  SYSIBM.SYSDUMMY1" />
+		</table>
 		<!-- 控制信息 -->
 		<table tableName="acctacctctrl">  
 			<property name="sequence" value="CTRLSEQNO_PK" />
@@ -322,14 +342,22 @@
 
 		<!--############################## 利率 ############################## -->
 		<table tableName="calcsched" >
+			<!-- FOR ORACLE 2015-12-01 SLY -->
+			<!-- <generatedKey column="CALCSCHEDNBR"
+				sqlStatement="select csii_sequencenextvalue('CALCSCHEDNBR_SEQ') from dual" /> -->
+			<!-- FOR DB2 2015-12-01 SLY -->
 			<generatedKey column="CALCSCHEDNBR"
-				sqlStatement="select csii_sequencenextvalue('CALCSCHEDNBR_SEQ') from dual" />
+				sqlStatement="select csii_sequencenextvalue('CALCSCHEDNBR_SEQ') from  SYSIBM.SYSDUMMY1" />
 		</table>
 		<table tableName="calcschedspreadcalcsched" />
 		<table tableName="calcschedtierbal" />
 		<table tableName="calcschedpricrate" >
+			<!-- FOR ORACLE 2015-12-01 SLY -->
+			<!-- <generatedKey column="SEQNBR"
+				sqlStatement="select csii_sequencenextvalue('CALCSCHEDPRICRATE_SEQNBR') from dual" /> -->
+			<!-- FOR DB2 2015-12-01 SLY -->
 			<generatedKey column="SEQNBR"
-				sqlStatement="select csii_sequencenextvalue('CALCSCHEDPRICRATE_SEQNBR') from dual" />
+				sqlStatement="select csii_sequencenextvalue('CALCSCHEDPRICRATE_SEQNBR') from  SYSIBM.SYSDUMMY1" />
 		</table>
 		<table tableName="calcschedtierrate" >
 		</table>
@@ -468,8 +496,12 @@
 		<table tableName="integralrules"/>
 		<table tableName="integralusereg"/>
 		<table tableName="integralevent">
+			<!-- FOR ORACLE 2015-12-01 SLY -->
+			<!-- <generatedKey column="EVENTNBR"
+				sqlStatement="select csii_sequencenextvalue('EVENTNBRSEQ_PK') from dual" /> -->
+			<!-- FOR DB2 2015-12-01 SLY -->
 			<generatedKey column="EVENTNBR"
-				sqlStatement="select csii_sequencenextvalue('EVENTNBRSEQ_PK') from dual" />
+				sqlStatement="select csii_sequencenextvalue('EVENTNBRSEQ_PK') from  SYSIBM.SYSDUMMY1" />
 		</table>
 		
 		<table tableName="payintmeth"></table>
@@ -478,8 +510,12 @@
 		<!--############################## 红包相关 ############################## -->
 		<table tableName="MJMIACCTTYPBRIBERY"/>
 		<table tableName="BRIBERYPREPAREREG">
+			<!-- FOR ORACLE 2015-12-01 SLY -->
+			<!-- <generatedKey column="SEQNBR"
+				sqlStatement="select csii_sequencenextvalue('BRIBERYPREPAREREG_SEQNBR') from dual" /> -->
+			<!-- FOR DB2 2015-12-01 SLY -->
 			<generatedKey column="SEQNBR"
-				sqlStatement="select csii_sequencenextvalue('BRIBERYPREPAREREG_SEQNBR') from dual" />
+				sqlStatement="select csii_sequencenextvalue('BRIBERYPREPAREREG_SEQNBR') from  SYSIBM.SYSDUMMY1" />
 		</table>
 		<table tableName="BRIBERYSHAREREG"/>
 		<table tableName="GETBRIBERYREG"/>
