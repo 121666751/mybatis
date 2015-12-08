@@ -520,5 +520,6 @@
 		<table tableName="BRIBERYSHAREREG"/>
 		<table tableName="GETBRIBERYREG"/>
 		<table tableName="MJMIACCTTYPBRIBERY" />
+		<table tableName="cardagreementtyp"></table>
 	</context>
 </generatorConfiguration>
