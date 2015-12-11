@@ -1,0 +1,10 @@
+bin/
+build/
+classes/
+target/
+*.log
+.DS_Store
+
+# Word临时文件
+~*.docx
+
