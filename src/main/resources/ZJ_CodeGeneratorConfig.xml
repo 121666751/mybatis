@@ -5,7 +5,7 @@
 		<!-- lubiao：该插件将生成的table_sqlmap.xml文件配置到sqlMapConfig.xml中 -->
 		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
 			<property name="fileName" value="sqlMapConfig.xml" />
-			<property name="targetProject" value="Power-Core-Dao" />
+			<property name="targetProject" value="Power-Core-Dao/src/main/resources" />
 			<property name="targetPackage" value="config.sqlmap" />
 		</plugin>
 
@@ -46,7 +46,7 @@
 			
 		<!-- FOR DB2 2015-12-01 SLY-->	
 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
-			connectionURL="jdbc:db2://192.168.191.4:50000/PCOREDB:currentSchema=PCORE;" userId="pcore"
+			connectionURL="jdbc:db2://172.16.0.70:50000/PCOREDB:currentSchema=PCORE;" userId="pcore"
 			password="pcore" />
 
 		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
