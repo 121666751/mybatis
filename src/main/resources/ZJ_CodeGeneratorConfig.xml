@@ -521,6 +521,9 @@
 		<table tableName="GETBRIBERYREG"/>
 		<table tableName="MJMIACCTTYPBRIBERY" />
 		<table tableName="cardagreementtyp"></table>
-		<table tableName="FUNDBATCHSTATE"></table>
+		<table tableName="FUNDBATCHSTATE">
+			<generatedKey column="SEQID"
+				sqlStatement="select csii_sequencenextvalue('FUNDBATCHSTATE_SEQID') from  SYSIBM.SYSDUMMY1" />
+		</table>
 	</context>
 </generatorConfiguration>
