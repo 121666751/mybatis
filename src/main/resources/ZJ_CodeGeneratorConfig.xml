@@ -521,5 +521,6 @@
 		<table tableName="GETBRIBERYREG"/>
 		<table tableName="MJMIACCTTYPBRIBERY" />
 		<table tableName="cardagreementtyp"></table>
+		<table tableName="FUNDBATCHSTATE"></table>
 	</context>
 </generatorConfiguration>
