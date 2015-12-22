@@ -294,7 +294,10 @@
 		<table tableName="accttransfertyp" />
 		<table tableName="agreementtyp" />
 		<table tableName="agreementstat" />
-		<table tableName="agreementacct" />
+		<table tableName="agreementacct">
+			<generatedKey column="AGREEMENTSEQNO"
+				sqlStatement="select csii_sequencenextvalue('AGREEMENTACCT_PK') from  SYSIBM.SYSDUMMY1" />
+		</table>
 
 
 		<!--############################## 存款交易 ############################## -->
