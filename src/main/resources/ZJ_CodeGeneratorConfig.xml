@@ -5,7 +5,7 @@
 		<!-- lubiao：该插件将生成的table_sqlmap.xml文件配置到sqlMapConfig.xml中 -->
 		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
 			<property name="fileName" value="sqlMapConfig.xml" />
-			<property name="targetProject" value="Power-Core-Dao/src/main/resources" />
+			<property name="targetProject" value="powercore-dao/src/main/resources" />
 			<property name="targetPackage" value="config.sqlmap" />
 		</plugin>
 
@@ -56,14 +56,14 @@
 		</javaTypeResolver>
 
 		<javaModelGenerator targetPackage="com.csii.bank.core.model.generate"
-			targetProject="Power-Core-Dao" />
+			targetProject="powercore-dao" />
 
 		<sqlMapGenerator targetPackage="com.csii.bank.core.dao.generate.impl"
-			targetProject="Power-Core-Dao">
+			targetProject="powercore-dao">
 		</sqlMapGenerator>
 
 		<javaClientGenerator targetPackage="com.csii.bank.core.dao.generate"
-			targetProject="Power-Core-Dao" type="SPRING"
+			targetProject="powercore-dao" type="SPRING"
 			implementationPackage="com.csii.bank.core.dao.generate.impl">
 		</javaClientGenerator>
 
