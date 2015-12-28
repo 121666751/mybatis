@@ -528,5 +528,8 @@
 			<generatedKey column="SEQID"
 				sqlStatement="select csii_sequencenextvalue('FUNDBATCHSTATE_SEQID') from  SYSIBM.SYSDUMMY1" />
 		</table>
+		<table tableName="BRANCHORGTYP"/>
+		<table tableName="BRANCHSTAT"/>
+		<table tableName="BRANCHREGION"/>
 	</context>
 </generatorConfiguration>
