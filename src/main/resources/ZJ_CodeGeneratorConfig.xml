@@ -534,5 +534,8 @@
 		<table tableName="BRANCHORGTYP"/>
 		<table tableName="BRANCHSTAT"/>
 		<table tableName="BRANCHREGION"/>
+		
+		<table tableName="agreement"/>
+		<table tableName="mjmiaccttypdep"/>
 	</context>
 </generatorConfiguration>
