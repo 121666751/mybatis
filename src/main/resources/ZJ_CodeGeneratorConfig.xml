@@ -527,10 +527,7 @@
 		<table tableName="GETBRIBERYREG"/>
 		<table tableName="MJMIACCTTYPBRIBERY" />
 		<table tableName="cardagreementtyp"></table>
-		<table tableName="FUNDBATCHSTATE">
-			<generatedKey column="SEQID"
-				sqlStatement="select csii_sequencenextvalue('FUNDBATCHSTATE_SEQID') from  SYSIBM.SYSDUMMY1" />
-		</table>
+		<table tableName="FUNDBATCHSTATE"/>
 		<table tableName="BRANCHORGTYP"/>
 		<table tableName="BRANCHSTAT"/>
 		<table tableName="BRANCHREGION"/>
