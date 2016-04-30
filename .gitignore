@@ -8,3 +8,22 @@ target/
 # Word临时文件
 ~*.docx
 
+# 临时文件
+*.tmp
+# 错误日志打包文件
+*.debug.zip
+*.error.zip
+
+# Eclipse项目配置文件
+.project
+.classpath
+.settings/
+
+.springBeans
+
+# TestNG测试输出目录
+test-output/
+
+# IDEA配置文件
+.idea/
+*.iml
