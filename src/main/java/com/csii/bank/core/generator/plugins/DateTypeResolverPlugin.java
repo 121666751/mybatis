@@ -6,7 +6,6 @@ import java.util.List;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.xml.XmlElement;
 
 public class DateTypeResolverPlugin extends PluginAdapter {
 	@Override

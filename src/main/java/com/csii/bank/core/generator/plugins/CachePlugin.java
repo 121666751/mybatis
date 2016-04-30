@@ -2,13 +2,11 @@ package com.csii.bank.core.generator.plugins;
 
 import java.util.List;
 
-import org.mybatis.generator.api.GeneratedXmlFile;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.Document;
 import org.mybatis.generator.api.dom.xml.XmlElement;
-import org.mybatis.generator.plugins.CachePlugin.CacheProperty;
 
 /**
  * 缓存插件，为sqlmap文件添加缓存配置

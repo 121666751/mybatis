@@ -3,9 +3,7 @@ package com.csii.bank.core.generator.plugins;
 import java.util.List;
 
 import org.mybatis.generator.api.IntrospectedTable;
-import org.mybatis.generator.api.Plugin;
 import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
 import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
 

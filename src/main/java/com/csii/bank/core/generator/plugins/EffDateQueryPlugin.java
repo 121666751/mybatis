@@ -1,7 +1,5 @@
 package com.csii.bank.core.generator.plugins;
 
-import static org.mybatis.generator.internal.util.JavaBeansUtil.getSetterMethodName;
-
 import java.util.List;
 
 import org.mybatis.generator.api.IntrospectedColumn;

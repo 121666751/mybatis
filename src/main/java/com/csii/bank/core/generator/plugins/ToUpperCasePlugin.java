@@ -2,7 +2,6 @@ package com.csii.bank.core.generator.plugins;
 
 import java.util.List;
 
-import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 
