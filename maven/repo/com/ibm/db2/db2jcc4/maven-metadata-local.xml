@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.ibm.db2</groupId>
+  <artifactId>db2jcc4</artifactId>
+  <versioning>
+    <release>4.14.111</release>
+    <versions>
+      <version>4.14.111</version>
+    </versions>
+    <lastUpdated>20151219151232</lastUpdated>
+  </versioning>
+</metadata>
