@@ -5,7 +5,7 @@
 		<!-- lubiao：该插件将生成的table_sqlmap.xml文件配置到sqlMapConfig.xml中 -->
 		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
 			<property name="fileName" value="sqlMapConfig.xml" />
-			<property name="targetProject" value="Power-Core-Dao" />
+			<property name="targetProject" value="powercore-dao/src/main/resources" />
 			<property name="targetPackage" value="config.sqlmap" />
 		</plugin>
 
@@ -46,7 +46,7 @@
 			
 		<!-- FOR DB2 2015-12-01 SLY-->	
 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
-			connectionURL="jdbc:db2://192.168.191.4:50000/PCOREDB:currentSchema=PCORE;" userId="pcore"
+			connectionURL="jdbc:db2://172.16.0.73:50000/PCOREDB:currentSchema=PCORE;" userId="pcore"
 			password="pcore" />
 
 		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
@@ -56,14 +56,14 @@
 		</javaTypeResolver>
 
 		<javaModelGenerator targetPackage="com.csii.bank.core.model.generate"
-			targetProject="Power-Core-Dao" />
+			targetProject="powercore-dao" />
 
 		<sqlMapGenerator targetPackage="com.csii.bank.core.dao.generate.impl"
-			targetProject="Power-Core-Dao">
+			targetProject="powercore-dao">
 		</sqlMapGenerator>
 
 		<javaClientGenerator targetPackage="com.csii.bank.core.dao.generate"
-			targetProject="Power-Core-Dao" type="SPRING"
+			targetProject="powercore-dao" type="SPRING"
 			implementationPackage="com.csii.bank.core.dao.generate.impl">
 		</javaClientGenerator>
 
@@ -294,7 +294,10 @@
 		<table tableName="accttransfertyp" />
 		<table tableName="agreementtyp" />
 		<table tableName="agreementstat" />
-		<table tableName="agreementacct" />
+		<table tableName="agreementacct">
+			<generatedKey column="AGREEMENTSEQNO"
+				sqlStatement="select csii_sequencenextvalue('AGREEMENTACCT_PK') from  SYSIBM.SYSDUMMY1" />
+		</table>
 
 
 		<!--############################## 存款交易 ############################## -->
@@ -327,6 +330,9 @@
 		<table tableName="corgrpmemb" />
 
 
+		<table tableName="glacct">
+			<property name="sequence" value="PK_GLACCT" />
+		</table>
 		<!--############################## 内部账户 ############################## -->
 		<table tableName="acctitl" />
 		<table tableName="itlrtxn" />
@@ -521,5 +527,12 @@
 		<table tableName="GETBRIBERYREG"/>
 		<table tableName="MJMIACCTTYPBRIBERY" />
 		<table tableName="cardagreementtyp"></table>
+		<table tableName="FUNDBATCHSTATE"/>
+		<table tableName="BRANCHORGTYP"/>
+		<table tableName="BRANCHSTAT"/>
+		<table tableName="BRANCHREGION"/>
+		
+		<table tableName="agreement"/>
+		<table tableName="mjmiaccttypdep"/>
 	</context>
 </generatorConfiguration>

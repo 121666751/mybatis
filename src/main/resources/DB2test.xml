@@ -24,8 +24,8 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
-			connectionURL="jdbc:db2://127.0.0.1:50000/MGMTDB:currentSchema=MGMT;" userId="lizheng"
-			password="Lizheng" />
+			connectionURL="jdbc:db2://172.16.0.73:50000/MGMTDB:currentSchema=MGMT;" userId="mgmt"
+			password="mgmt" />
 
 		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
 		<javaTypeResolver
@@ -45,16 +45,17 @@
 			implementationPackage="com.csii.backstagems.dao.impl">
 		</javaClientGenerator>
 
-		<table tableName="AUTH"></table>
-		<table tableName="AUTHAUTHITEM"></table>
-		<table tableName="AUTHAUTHITEMMENUITEMELEMENT"></table>
-		<table tableName="AUTHITEM"></table>
-		<table tableName="AUTHITEMEXCLUAUTHITEM"></table>
-		<table tableName="ELEMENT"></table>
-		<table tableName="ENUMRATION"></table>
-		<table tableName="MENUITEM"></table>
-		<table tableName="MENUITEMELEMENT"></table>
-		<table tableName="TELLER"></table>
-		<table tableName="TELLERUSERSIGNONHIST"></table>
+<!-- 		<table tableName="AUTH"></table> -->
+<!-- 		<table tableName="AUTHAUTHITEM"></table> -->
+<!-- 		<table tableName="AUTHAUTHITEMMENUITEMELEMENT"></table> -->
+<!-- 		<table tableName="AUTHITEM"></table> -->
+<!-- 		<table tableName="AUTHITEMEXCLUAUTHITEM"></table> -->
+<!-- 		<table tableName="ELEMENT"></table> -->
+<!-- 		<table tableName="ENUMRATION"></table> -->
+<!-- 		<table tableName="MENUITEM"></table> -->
+<!-- 		<table tableName="MENUITEMELEMENT"></table> -->
+<!-- 		<table tableName="TELLER"></table> -->
+<!-- 		<table tableName="AUTHORIZEDHIST"></table> -->
+		<table tableName="TELLEROPERATIONHIST"></table>
 	</context>
 </generatorConfiguration>
