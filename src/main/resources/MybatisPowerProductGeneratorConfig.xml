@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-<!-- 	<properties resource="META-INF/config.properties" /> -->
-
+	<!-- <properties resource="META-INF/config.properties" /> -->
 	<context id="productRelease">
-	
-		<!-- lubiao：为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 -->
-		<plugin type="com.csii.bank.core.generator.plugins.MyBatis3_DatelastmaintPlugin"></plugin>
-	
+		<!-- 为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 mybatis3版本需要将javaClientGenerator的type属性指定为XMLMAPPER -->
+		<plugin
+			type="com.csii.bank.core.generator.plugins.MyBatis3_DatelastmaintPlugin"></plugin>
+
 		<commentGenerator>
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
 
 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
-			connectionURL="jdbc:db2://192.168.0.174:50000/producmo:currentSchema=PRUSER;" userId="administrator"
-			password="ly" />
+			connectionURL="jdbc:db2://192.168.0.174:50000/producmo:currentSchema=PRUSER;"
+			userId="administrator" password="ly" />
 
 		<javaModelGenerator targetPackage="com.csii.bank.product.model.generate"
 			targetProject="powerproduct-release" />
@@ -22,126 +21,109 @@
 		<sqlMapGenerator targetPackage="com.csii.bank.product.dao.generate"
 			targetProject="powerproduct-release" />
 
-    <!-- 对于mybatis来说，即生成Mapper接口，注意，如果没有配置该元素，那么默认不会生成Mapper接口 
-        targetPackage/targetProject:同javaModelGenerator
-        type：选择怎么生成mapper接口（在MyBatis3/MyBatis3Simple下）：
-            1，ANNOTATEDMAPPER：会生成使用Mapper接口+Annotation的方式创建（SQL生成在annotation中），不会生成对应的XML；
-            2，MIXEDMAPPER：使用混合配置，会生成Mapper接口，并适当添加合适的Annotation，但是XML会生成在XML中；
-            3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
-        注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER
-    -->
+		<!-- 对于mybatis来说，即生成Mapper接口，注意，如果没有配置该元素，那么默认不会生成Mapper接口 targetPackage/targetProject:同javaModelGenerator 
+			type：选择怎么生成mapper接口（在MyBatis3/MyBatis3Simple下）： 
+			1，ANNOTATEDMAPPER：会生成使用Mapper接口+Annotation的方式创建（SQL生成在annotation中），不会生成对应的XML； 
+			2，MIXEDMAPPER：使用混合配置，会生成Mapper接口，并适当添加合适的Annotation，但是XML会生成在XML中； 
+			3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML； 
+			注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER 
+		-->
 		<javaClientGenerator targetPackage="com.csii.bank.product.dao.generate"
 			targetProject="powerproduct-release" type="XMLMAPPER" />
-		
-<!-- 		<table tableName="CHANRTXN"> -->
-<!-- 			<generatedKey column="txnseqid" -->
-<!-- 				sqlStatement="select csii_sequencenextvalue('TXNSEQID_SEQ') from DUAL" /> -->
-<!-- 		</table> -->
-<!-- 		<table tableName="TELLPROD" /> -->
-<!-- 		<table tableName="CURRENCY" /> -->
-<!-- 		<table tableName="BATCH_PARAMETER_CONFIG" /> -->
 
-<!-- 		<table tableName="PRODTYP" /> -->
-		<table tableName="BANKOPTION" />
-<!-- 		<table tableName="BANKWORKDATE" /> -->
-<!-- 		<table tableName="BANKYEARMONTHDAY" /> -->
-<!-- 		<table tableName="ACCTSTAT"></table> -->
-<!-- 		<table tableName="BANK"></table> -->
-<!-- 		<table tableName="CREDTYP"></table> -->
-<!-- 		<table tableName="CURRENCY"></table> -->
-<!-- 		<table tableName="INCSTAT"></table> -->
-<!-- 		<table tableName="INTRULE"></table> -->
-<!-- 		<table tableName="JXJORDERINFO"></table> -->
-<!-- 		<table tableName="JXJORDERRECORD"></table> -->
-<!-- 		<table tableName="JXJORDERSTAT"></table> -->
-<!-- 		<table tableName="JXJPRICEHIST"></table> -->
-<!-- 		<table tableName="JXJPRODSTAT"></table> -->
-<!-- 		<table tableName="LINKIND"></table> -->
-<!-- 		<table tableName="PRODACCT"></table> -->
-<!-- 		<table tableName="PRODACCTBAL"></table>  -->
-<!-- 		<table tableName="PRODAUDIT"> -->
-<!-- 		<generatedKey column="AUDITSEQ" -->
-<!-- 				sqlStatement="select csii_sequencenextvalue('PRDOAUDITSEQ_PK') from DUAL" /> -->
-<!-- 		</table> -->
-<!-- 		<table tableName="PRODBALCAT"></table> -->
-<!-- 		<table tableName="PRODBALREL"></table> -->
-<!-- 		<table tableName="PRODBALTYP"></table> -->
-<!-- 		<table tableName="PRODCAT"></table> -->
-<!-- 		<table tableName="PRODCREDIT"></table> -->
-<!-- 		<table tableName="PRODFINSTAT"></table> -->
-<!-- 		<table tableName="PRODINCCALDTL"> -->
-<!-- 			<generatedKey column="INCCALDTLSEQ" -->
-<!-- 				sqlStatement="select csii_sequencenextvalue('INCCALDTLSEQ_SEQ') from DUAL" /> -->
-<!-- 		</table> -->
-<!-- 		<table tableName="PRODJGX"> -->
-<!-- 			<generatedKey column="PRODNBR" -->
-<!-- 				sqlStatement="select csii_sequencenextvalue('PRODNBR_SEQ') from DUAL" /> -->
-<!-- 		</table> -->
-<!-- 		<table tableName="PRODJGXSUB"></table> -->
-<!-- 		<table tableName="PRODJXJ"></table> -->
-<!-- 		<table tableName="PRODJXJSUB"></table> -->
-<!-- 		<table tableName="PRODMEDI"></table> -->
-<!-- 		<table tableName="PRODRATE"></table> -->
-<!-- 		<table tableName="PRODRELBOOK"></table> -->
-<!-- 		<table tableName="PRODRISKBOOK"></table> -->
-<!-- 		<table tableName="PRODSPECBOOK"></table> -->
-<!-- 		<table tableName="RATECALTYP"></table> -->
-<!-- 		<table tableName="RATETYP"></table> -->
-<!-- 		<table tableName="REGSTAT"></table> -->
-<!-- 		<table tableName="PRODJXJ">  -->
-<!-- 		<generatedKey column="PRODNBR"  -->
-<!--  				sqlStatement="select csii_sequencenextvalue('JXJPRODNBR_SEQ') from DUAL" /> -->
-<!-- 		<table tableName="TRANSCHANG"></table> -->
-<!-- 	</table>  -->
-<!-- 		<table tableName="PRODREG"> -->
-<!-- 			<generatedKey column="PRODREGSEQ"  -->
-<!--  				sqlStatement="select csii_sequencenextvalue('PRODREGSEQ_SEQ') from DUAL" /> -->
-<!-- 		</table> -->
-		<!-- <table tableName="WTCORERTXN">
-			<generatedKey column="RTXNNBR" 
- 				sqlStatement="select csii_sequencenextvalue('RTXNNBR_SEQ') from DUAL" />
-		</table> 
-		<table tableName="JXJORDERECEIVINFO"/>
-		<table tableName="JXJORDERRECORD">
-		<generatedKey column="ORDERNBR" 
- 				sqlStatement="select csii_sequencenextvalue('JXJORDERNBR_SEQ') from DUAL" />
-		</table>-->
-	<!-- 	<table tableName="WTCORERTXN">
-			<generatedKey column="RTXNNBR" 
- 				sqlStatement="select csii_sequencenextvalue('RTXNNBR_SEQ') from DUAL" />
-		</table>  
-		<table tableName="BATCH_JOB_CONFIG"/>
-		<table tableName="BATCH_SCHEDULE_CONFIG"/>
-		<table tableName="JXJPURCHCHAN"/> -->
-		<!-- <table tableName="PURCHHIST">
-		   <generatedKey column="PURCHHISTSEQ" 
- 				sqlStatement="select csii_sequencenextvalue('PURCHHIST_SEQ') from DUAL" />
-		</table> 
-		<table tableName="PRODREG">
-			<generatedKey column="PRODREGSEQ" 
- 				sqlStatement="select csii_sequencenextvalue('PRODREGSEQ_SEQ') from DUAL" />
-		</table> -->
-<!-- 		<table tableName="DICTIONARY"></table> -->
-		 <!-- <table tableName="PRODFUND">
-		    <generatedKey column="PRODNBR" 
- 				sqlStatement="select csii_sequencenextvalue('FUNDPRODNBR_SEQ') from DUAL" />
+
+		<table tableName="ACCTSTAT"></table>
+		<table tableName="BANK"></table>
+		<table tableName="BANKOPTION"></table>
+		<table tableName="BANKWORKDATE"></table>
+		<table tableName="BANKYEARMONTHDAY"></table>
+		<table tableName="BATCH_JOB_CONFIG"></table>
+		<table tableName="BATCH_PARAMETER_CONFIG"></table>
+		<table tableName="BATCH_SCHEDULE_CONFIG"></table>
+		<table tableName="CHANRTXN">
+			<generatedKey column="txnseqid"
+				sqlStatement="select csii_sequencenextvalue('TXNSEQID_SEQ') from DUAL" />
 		</table>
-		
-  <table tableName="LANGUAGE"></table>
+		<table tableName="CREDTYP"></table>
+		<table tableName="CURRENCY"></table>
+		<table tableName="DICTIONARY"></table>
 		<table tableName="FUNDRETURNTYP"></table>
-		<table tableName="FUNDNAVHIST"></table> 
+		<table tableName="FUNDNAVHIST"></table>
+		<table tableName="INCSTAT"></table>
+		<table tableName="INTRULE"></table>
+		<table tableName="JXJORDERECEIVINFO"></table>
+		<table tableName="JXJORDERPROD"></table>
+		<table tableName="JXJORDERRECORD">
+			<generatedKey column="ORDERNBR"
+				sqlStatement="select csii_sequencenextvalue('JXJORDERNBR_SEQ') from DUAL" />
+		</table>
+		<table tableName="JXJORDERSTAT"></table>
 		<table tableName="JXJPICKUPBRANMAINT"></table>
+		<table tableName="JXJPRICEHIST"></table>
+		<table tableName="JXJPRODSTAT"></table>
+		<table tableName="JXJPURCHCHAN"></table>
+		<table tableName="LANGUAGE"></table>
+		<table tableName="LINKIND"></table>
+		<table tableName="PRODACCT">
+			<generatedKey column="PRODACCTNBR"
+				sqlStatement="select csii_sequencenextvalue('PRODACCTNBR_SEQ') from DUAL" />
+		</table>
+		<table tableName="PRODACCTBAL"></table>
+		<table tableName="PRODAUDIT">
+			<generatedKey column="AUDITSEQ"
+				sqlStatement="select csii_sequencenextvalue('PRDOAUDITSEQ_PK') from DUAL" />
+		</table>
+		<table tableName="PRODBALCAT"></table>
+		<table tableName="PRODBALREL"></table>
+		<table tableName="PRODBALTYP"></table>
+		<table tableName="PRODCAT"></table>
+		<table tableName="PRODCREDIT"></table>
+		<table tableName="PRODFINSTAT"></table>
+		<table tableName="PRODFUND">
+			<generatedKey column="PRODNBR"
+				sqlStatement="select csii_sequencenextvalue('FUNDPRODNBR_SEQ') from DUAL" />
+		</table>
+		<table tableName="PRODINCCALDTL">
+			<generatedKey column="INCCALDTLSEQ"
+				sqlStatement="select csii_sequencenextvalue('INCCALDTLSEQ_SEQ') from DUAL" />
+		</table>
 		<table tableName="PRODJGX">
 			<generatedKey column="PRODNBR"
 				sqlStatement="select csii_sequencenextvalue('PRODNBR_SEQ') from DUAL" />
-		</table>-->
-	<!-- 	<table tableName="PRODJXJ"> 
-			<generatedKey column="PRODNBR" 
-	 				sqlStatement="select csii_sequencenextvalue('JXJPRODNBR_SEQ') from DUAL" />
- 		</table> -->
-<!--         <table tableName="JXJORDERRECORD"> -->
-<!--  		     <generatedKey column="ORDERNBR"  -->
-<!--  				    sqlStatement="select csii_sequencenextvalue('JXJORDERNBR_SEQ') from DUAL" /> -->
-<!--  		</table> -->
+		</table>
+		<table tableName="PRODJGXSUB"></table>
+		<table tableName="PRODJXJ">
+			<generatedKey column="PRODNBR"
+				sqlStatement="select csii_sequencenextvalue('JXJPRODNBR_SEQ') from DUAL" />
+		</table>
+		<table tableName="PRODJXJSUB"></table>
+		<table tableName="PRODMEDI"></table>
+		<table tableName="PRODQYFUND"></table>
+		<table tableName="PRODRATE"></table>
+		<table tableName="PRODREG">
+			<generatedKey column="PRODREGSEQ"
+				sqlStatement="select csii_sequencenextvalue('PRODREGSEQ_SEQ') from DUAL" />
+		</table>
+		<table tableName="PRODRELBOOK"></table>
+		<table tableName="PRODRISKBOOK"></table>
+		<table tableName="PRODSPECBOOK"></table>
+		<table tableName="PRODTYP"></table>
+		<table tableName="PURCHHIST">
+			<generatedKey column="PURCHHISTSEQ"
+				sqlStatement="select csii_sequencenextvalue('PURCHHIST_SEQ') from DUAL" />
+		</table>
+		<table tableName="RATECALTYP"></table>
+		<table tableName="RATETYP"></table>
+		<table tableName="REGSTAT"></table>
+		<table tableName="TELLPROD">
+			<generatedKey column="prodchagnbr"
+				sqlStatement="select csii_sequencenextvalue('PRODCHAGNBR_KEY') from DUAL" />
+		</table>
+		<table tableName="TRANSCHANG"></table>
+		<table tableName="WTCORERTXN">
+			<generatedKey column="RTXNNBR"
+				sqlStatement="select csii_sequencenextvalue('RTXNNBR_SEQ') from DUAL" />
+		</table>
+
 	</context>
 </generatorConfiguration>
