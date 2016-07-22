@@ -40,19 +40,16 @@ public class MyBatis3_UpdateByExampleWithoutBLOBsElementGenerator extends MyBati
 
 		// set up for first column
 		sb.setLength(0);
-		sb.append(hasDateLastMainColumn(introspectedTable.getNonPrimaryKeyColumns()) ? UPDATE_CLAUSE : "set"); //$NON-NLS-1$
+		sb.append("set "); //$NON-NLS-1$
 
 		Iterator<IntrospectedColumn> iter = this.introspectedTable.getNonBLOBColumns().iterator();
 		while (iter.hasNext()) {
 			IntrospectedColumn introspectedColumn = iter.next();
 
-			if (isDateLastMainColumn(introspectedColumn)) {
-				continue;
-			}
-
 			sb.append(MyBatis3FormattingUtilities.getAliasedEscapedColumnName(introspectedColumn));
 			sb.append(" = "); //$NON-NLS-1$
-			sb.append(MyBatis3FormattingUtilities.getParameterClause(introspectedColumn, "record.")); //$NON-NLS-1$
+			sb.append(isDateLastMainColumn(introspectedColumn) ? SYSDATE
+					: MyBatis3FormattingUtilities.getParameterClause(introspectedColumn, "record.")); //$NON-NLS-1$
 
 			if (iter.hasNext()) {
 				sb.append(',');

@@ -43,7 +43,7 @@ public class MyBatis3_UpdateByPrimaryKeyWithoutBLOBsElementGenerator extends MyB
 
 		// set up for first column
 		sb.setLength(0);
-		sb.append(hasDateLastMainColumn(introspectedTable.getNonPrimaryKeyColumns()) ? UPDATE_CLAUSE : "set"); //$NON-NLS-1$
+		sb.append("set "); //$NON-NLS-1$
 
 		Iterator<IntrospectedColumn> iter;
 		if (isSimple) {
@@ -54,13 +54,10 @@ public class MyBatis3_UpdateByPrimaryKeyWithoutBLOBsElementGenerator extends MyB
 		while (iter.hasNext()) {
 			IntrospectedColumn introspectedColumn = iter.next();
 
-			if (isDateLastMainColumn(introspectedColumn)) {
-				continue;
-			}
-
 			sb.append(MyBatis3FormattingUtilities.getEscapedColumnName(introspectedColumn));
 			sb.append(" = "); //$NON-NLS-1$
-			sb.append(MyBatis3FormattingUtilities.getParameterClause(introspectedColumn)); // $NON-NLS-1$
+			sb.append(isDateLastMainColumn(introspectedColumn) ? SYSDATE
+					: MyBatis3FormattingUtilities.getParameterClause(introspectedColumn));
 
 			if (iter.hasNext()) {
 				sb.append(',');
