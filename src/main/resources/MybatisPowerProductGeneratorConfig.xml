@@ -128,6 +128,7 @@
 			<generatedKey column="RTXNNBR"
 				sqlStatement="select csii_sequencenextvalue('RTXNNBR_SEQ') from DUAL" />
 		</table>
-
+		<!-- 吉祥金图片关系表 -->
+		<table tableName="PRODJXJPIC"></table>
 	</context>
 </generatorConfiguration>
