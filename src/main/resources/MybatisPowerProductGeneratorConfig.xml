@@ -11,12 +11,12 @@
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
 
-<!-- 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver" -->
-<!-- 			connectionURL="jdbc:db2://172.16.0.70:60000/producmo:currentSchema=PRUSER;" -->
-<!-- 			userId="pruser" password="pruser" /> -->
 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
-			connectionURL="jdbc:db2://192.168.0.174:50000/producmo:currentSchema=PRUSER;"
-			userId="administrator" password="ly" />
+			connectionURL="jdbc:db2://172.16.0.70:60000/producmo:currentSchema=PRUSER;"
+			userId="pruser" password="pruser" />
+<!-- 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver" -->
+<!-- 			connectionURL="jdbc:db2://192.168.0.174:50000/producmo:currentSchema=PRUSER;" -->
+<!-- 			userId="administrator" password="ly" /> -->
 
 		<javaModelGenerator targetPackage="com.csii.bank.product.model.generate"
 			targetProject="powerproduct-release" />
@@ -130,5 +130,7 @@
 		</table>
 		<!-- 吉祥金图片关系表 -->
 		<table tableName="PRODJXJPIC"></table>
+		<!-- 期权行使表 -->
+		<table tableName="OPTIONEXE"/>
 	</context>
 </generatorConfiguration>
