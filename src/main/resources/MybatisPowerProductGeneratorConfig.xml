@@ -132,5 +132,13 @@
 		<table tableName="PRODJXJPIC"></table>
 		<!-- 期权行使表 -->
 		<table tableName="OPTIONEXE"/>
+		<!-- 余额明细表 -->
+		<table tableName="BALDTL"/>
+		<!-- 定价日报表/观察日报表 -->
+		<table tableName="DAILYOBSERVEBG"/>
+		<!-- 到期日报表 -->
+		<table tableName="DAILYOBSERVEED"/>
+		<!-- 交易日报表 -->
+		<table tableName="DAILYTXN"/>
 	</context>
 </generatorConfiguration>
