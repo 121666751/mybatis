@@ -133,12 +133,24 @@
 		<!-- 期权行使表 -->
 		<table tableName="OPTIONEXE"/>
 		<!-- 余额明细表 -->
-		<table tableName="BALDTL"/>
+		<table tableName="BALDTL">
+			<generatedKey column="AUDITSEQ"
+				sqlStatement="select csii_sequencenextvalue('AUDITDTL_SEQ') from DUAL" />
+		</table>
 		<!-- 定价日报表/观察日报表 -->
-		<table tableName="DAILYOBSERVEBG"/>
+		<table tableName="DAILYOBSERVEBG">
+			<generatedKey column="AUDITSEQ"
+				sqlStatement="select csii_sequencenextvalue('AUDITBG_SEQ') from DUAL" />
+		</table>
 		<!-- 到期日报表 -->
-		<table tableName="DAILYOBSERVEED"/>
+		<table tableName="DAILYOBSERVEED">
+			<generatedKey column="AUDITSEQ"
+				sqlStatement="select csii_sequencenextvalue('AUDITED_SEQ') from DUAL" />
+		</table>
 		<!-- 交易日报表 -->
-		<table tableName="DAILYTXN"/>
+		<table tableName="DAILYTXN">
+			<generatedKey column="AUDITSEQ"
+				sqlStatement="select csii_sequencenextvalue('AUDITTXN_SEQ') from DUAL" />
+		</table>
 	</context>
 </generatorConfiguration>
