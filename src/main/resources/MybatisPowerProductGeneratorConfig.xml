@@ -152,5 +152,7 @@
 			<generatedKey column="AUDITSEQ"
 				sqlStatement="select csii_sequencenextvalue('AUDITTXN_SEQ') from DUAL" />
 		</table>
+		<!-- 牌价表 -->
+		<table tableName="QUOTEPRICE"/>
 	</context>
 </generatorConfiguration>
