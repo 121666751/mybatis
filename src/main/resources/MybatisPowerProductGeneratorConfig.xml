@@ -154,5 +154,6 @@
 		</table>
 		<!-- 牌价表 -->
 		<table tableName="QUOTEPRICE"/>
+		<table tableName="CURRENCYCODE"/>
 	</context>
 </generatorConfiguration>
