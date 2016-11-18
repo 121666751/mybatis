@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- <properties resource="META-INF/config.properties" /> -->
+	<context id="productRelease">
+
+		<!-- 为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 mybatis3版本需要将javaClientGenerator的type属性指定为XMLMAPPER -->
+		<plugin
+			type="com.csii.bank.core.generator.plugins.MyBatis3_DatelastmaintPlugin"></plugin>
+
+		<!-- <commentGenerator> <property name="suppressDate" value="true" /> </commentGenerator> -->
+		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
+			connectionURL="jdbc:db2://172.16.0.73:50000/mgmtdb:currentSchema=MGMT;"
+			userId="mgmt" password="mgmt" />
+
+		<javaModelGenerator targetPackage="com.csii.backstagems.dao.generate"
+			targetProject="backstagems-web" />
+
+		<sqlMapGenerator targetPackage="com.csii.backstagems.dao.generate"
+			targetProject="backstagems-web" />
+
+		<!-- 对于mybatis来说，即生成Mapper接口，注意，如果没有配置该元素，那么默认不会生成Mapper接口 targetPackage/targetProject:同javaModelGenerator
+			type：选择怎么生成mapper接口（在MyBatis3/MyBatis3Simple下）： 1，ANNOTATEDMAPPER：会生成使用Mapper接口+Annotation的方式创建（SQL生成在annotation中），不会生成对应的XML；
+			2，MIXEDMAPPER：使用混合配置，会生成Mapper接口，并适当添加合适的Annotation，但是XML会生成在XML中； 3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
+			注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER -->
+		<javaClientGenerator targetPackage="com.csii.backstagems.dao.generate"
+			targetProject="backstagems-web" type="XMLMAPPER" />
+
+		<table tableName="TELLER" />
+		<!-- <table tableName="TELLERUSER" /> -->
+
+	</context>
+</generatorConfiguration>
