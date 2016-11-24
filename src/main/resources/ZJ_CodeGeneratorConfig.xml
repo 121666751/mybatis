@@ -46,7 +46,7 @@
 			
 		<!-- FOR DB2 2015-12-01 SLY-->	
 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
-			connectionURL="jdbc:db2://172.16.0.73:50000/PCOREDB:currentSchema=PCORE;" userId="pcore"
+			connectionURL="jdbc:db2://172.16.0.73:50000/DEVDB:currentSchema=PCORE;" userId="pcore"
 			password="pcore" />
 
 		<!-- lubiao: 该配置保证Number22类型的表字段不会生成BigDecimal类型的java字段，而是Long型 -->
@@ -66,8 +66,15 @@
 			targetProject="powercore-dao" type="SPRING"
 			implementationPackage="com.csii.bank.core.dao.generate.impl">
 		</javaClientGenerator>
+		
+		<table tableName="glaccttitle" >
+			<generatedKey column="GLACCTTITLENBR"
+				sqlStatement="select csii_sequencenextvalue('PK_GLACCTTITLE') from  SYSIBM.SYSDUMMY1" />
+		</table>
+		
+		<table tableName="glacctproofcopyhist" />
 
-		<!-- ############################## 基础参数 ############################## -->
+<!-- ############################## 基础参数 ############################## -->
 		<!-- 验证规则 -->
 		<table tableName="valrule" />
 		<table tableName="valruletyp" />
@@ -222,6 +229,7 @@
 			<generatedKey column="ACCTKXHSEQNBR"
 				sqlStatement="select csii_sequencenextvalue('ACCTKXHREG_SEQNBR') from  SYSIBM.SYSDUMMY1" />
 		</table>
+		
 		<table tableName="acctstat" />
 		<table tableName="acctacctstathist">
 			<!-- FOR ORACLE 2015-12-01 SLY -->
@@ -534,5 +542,8 @@
 		
 		<table tableName="agreement"/>
 		<table tableName="mjmiaccttypdep"/>
+		
+
+
 	</context>
 </generatorConfiguration>
