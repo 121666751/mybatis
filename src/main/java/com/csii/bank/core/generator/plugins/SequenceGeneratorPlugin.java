@@ -33,9 +33,9 @@ public class SequenceGeneratorPlugin extends PluginAdapter {
 			context.getCommentGenerator().addComment(e);
 			StringBuilder sb = new StringBuilder();
 			// FOR ORACLE 2015-12-01 SLY
-//			sb.append("select csii_sequencenextvalue('"+value.toLowerCase()+"') from dual");
-			// FOR DB2 2015-12-01 SLY
-			sb.append("select csii_sequencenextvalue('"+value.toLowerCase()+"') from  SYSIBM.SYSDUMMY1");
+			sb.append("select csii_sequencenextvalue('"+value.toLowerCase()+"') from dual");
+//			 FOR DB2 2015-12-01 SLY
+//			sb.append("select csii_sequencenextvalue('"+value.toLowerCase()+"') from  SYSIBM.SYSDUMMY1");
 			e.addElement(new TextElement(sb.toString()));
 			document.getRootElement().addElement(e);
 		}
