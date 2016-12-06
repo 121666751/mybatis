@@ -40,10 +40,8 @@ public class Mybatis3_SequenceGeneratorPlugin extends PluginAdapter {
 			e.addAttribute(new Attribute("resultClass", "java.lang.Long"));
 			context.getCommentGenerator().addComment(e);
 			StringBuilder sb = new StringBuilder();
-			// FOR ORACLE 2015-12-01 SLY
+			//目前统一使用dual作为伪表，各数据库将伪表的别名定位dual即可
 			sb.append("select csii_sequencenextvalue('"+value.toLowerCase()+"') from dual");
-//			 FOR DB2 2015-12-01 SLY
-//			sb.append("select csii_sequencenextvalue('"+value.toLowerCase()+"') from  SYSIBM.SYSDUMMY1");
 			e.addElement(new TextElement(sb.toString()));
 			document.getRootElement().addElement(e);
 		}
