@@ -151,21 +151,6 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 			TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
 		if (isNeedEffectiveQuery(introspectedTable)) {
 			interfaze.addMethod(getMethodShell(introspectedTable));
-
-			/*Method method = getMethodShell(introspectedTable);
-			StringBuilder sb = new StringBuilder();
-			FullyQualifiedJavaType returnType = method.getReturnType();
-
-			sb.setLength(0);
-			sb.append(returnType.getShortName());
-			sb.append(" record = ("); //$NON-NLS-1$
-			sb.append(returnType.getShortName());
-			sb.append(") "); //$NON-NLS-1$
-			sb.append("getSqlMapClientTemplate().queryForObject(\"" + introspectedTable.getFullyQualifiedTableNameAtRuntime() + ".getEffectiveEntryByDate\"" + ",_key);"); //$NON-NLS-1$
-			method.addBodyLine(sb.toString());
-			method.addBodyLine("return record;"); //$NON-NLS-1$
-
-			topLevelClass.addMethod(method);*/
 		}
 		return true;
 	}
@@ -173,9 +158,7 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 	protected XmlElement getBaseColumnListElement(
 			IntrospectedTable introspectedTable) {
 		XmlElement answer = new XmlElement("include");
-		answer.addAttribute(new Attribute("refid", introspectedTable
-				.getIbatis2SqlMapNamespace()
-				+ "." + introspectedTable.getBaseColumnListId())); //$NON-NLS-1$
+		answer.addAttribute(new Attribute("refid",introspectedTable.getBaseColumnListId())); //$NON-NLS-1$
 		return answer;
 	}
 
