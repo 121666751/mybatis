@@ -7,13 +7,16 @@
 		<!-- 为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 mybatis3版本需要将javaClientGenerator的type属性指定为XMLMAPPER -->
 		<plugin
 			type="com.csii.bank.core.generator.plugins.MyBatis3_DatelastmaintPlugin"></plugin>
-
+        <!-- 生成sequence代码 -->
+		<plugin type="com.csii.bank.core.generator.plugins.Mybatis3_SequenceGeneratorPlugin"></plugin>
+        <!-- 对含有effdate和inactive的表自动生成查询当前有效记录的语句 -->
+		<plugin type="com.csii.bank.core.generator.plugins.Mybatis3_EffDateQueryPlugin"></plugin>
 		<!-- <commentGenerator> <property name="suppressDate" value="true" /> </commentGenerator> -->
 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
 			connectionURL="jdbc:db2://172.16.0.73:50000/DEVDB:currentSchema=PCORE;"
 			userId="pcore" password="pcore" />
-		<!-- <javaModelGenerator targetPackage="com.csii.backstagems.dao.generate"
-			targetProject="powercore-dao" /> -->
+	    <javaModelGenerator targetPackage="com.csii.bank.core.model.generate"
+			targetProject="powercore-dao" /> 
 		<sqlMapGenerator targetPackage="com.csii.bank.core.dao.generate.mapper"
 			targetProject="powercore-dao" />
 
@@ -25,7 +28,7 @@
 			targetProject="powercore-dao" type="XMLMAPPER" />
 
 		<!-- <table tableName="Mjaccttyp" /> -->
-		<table tableName="ACCT" />
+		<!-- <table tableName="ACCT" />
 		<table tableName="ACCTACCTBALTYPCALCVARVALUE" />
 		<table tableName="ACCTACCTCALCVARVALUE" />
 		<table tableName="ACCTACCTCTRL" />
@@ -233,7 +236,9 @@
 		<table tableName="FUNDTYPDTLGLACCT" />
 		<table tableName="GENTYP" />
 		<table tableName="GETBRIBERYREG" />
-		<table tableName="GLACCT" />
+		<table tableName="GLACCT" >
+		<property name="sequence" value="TXNSEQID_SEQ" />
+		</table>
 		<table tableName="GLACCTPROOFCOPYHIST" />
 		<table tableName="GLACCTPROOFHIST" />
 		<table tableName="GLACCTTITLE" />
@@ -281,7 +286,7 @@
 		<table tableName="MEDISEALTYP" />
 		<table tableName="MEDISTAT" />
 		<table tableName="MEMOBALTYP" />
-	<!-- 	<table tableName="MJACCTTYP" /> -->
+		<table tableName="MJACCTTYP" />
 		<table tableName="MJACCTTYPCAT" />
 		<table tableName="MJACCTTYPCATVALRULE" />
 		<table tableName="MJACCTTYPVALRULE" />
@@ -315,7 +320,7 @@
 		<table tableName="MJMIACCTTYPBRIBERY" />
 		<table tableName="MJMIACCTTYPCC" />
 		<table tableName="MJMIACCTTYPCCCHRG" />
-		<!-- <table tableName="MJMIACCTTYPDEP" /> -->
+		<table tableName="MJMIACCTTYPDEP" />
 		<table tableName="MJMIACCTTYPINTEGRAL" />
 		<table tableName="MJMIACCTTYPITL" />
 		<table tableName="MJMIACCTTYPLOAN" />
@@ -446,7 +451,12 @@
 		<table tableName="VALRULE" />
 		<table tableName="VALRULETYP" />
 		<table tableName="VOUCHTYP" />
-		<table tableName="WRNFLAG" />
-
+		<table tableName="WRNFLAG" /> -->
+<!--         <table tableName="CHANRTXN"> -->
+<!-- 			<property name="sequence" value="TXNSEQID_SEQ" /> -->
+<!-- 		</table> -->
+		<table tableName="GLACCT" >
+		<property name="sequence" value="PK_GLACCT" />
+		</table>
 	</context>
 </generatorConfiguration>

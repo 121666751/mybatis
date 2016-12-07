@@ -15,14 +15,12 @@ import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.Document;
 import org.mybatis.generator.api.dom.xml.TextElement;
 import org.mybatis.generator.api.dom.xml.XmlElement;
-import org.mybatis.generator.codegen.ibatis2.Ibatis2FormattingUtilities;
+//import org.mybatis.generator.codegen.ibatis2.Ibatis2FormattingUtilities;
+import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 
 /**
- * 自动生成带Effdate和Inactivedate条件的sql代码
+ * 自动生成带Effdate和Inactive的sql代码
  * 
- * MyBatis3版本
- * 
- * @author GaoYu
  */
 public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 
@@ -46,7 +44,7 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 			} else {
 				parameterType = introspectedTable.getBaseRecordType();
 			}
-			e.addAttribute(new Attribute("parameterClass", parameterType));
+			e.addAttribute(new Attribute("parameterType", parameterType));
 
 			context.getCommentGenerator().addComment(e);
 
@@ -74,10 +72,10 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 				}
 
 				if (!"EFFDATE".equals(introspectedColumn.getActualColumnName())) {
-					sb.append(Ibatis2FormattingUtilities
+					sb.append(MyBatis3FormattingUtilities
 							.getAliasedEscapedColumnName(introspectedColumn));
 					sb.append(" = "); //$NON-NLS-1$
-					sb.append(Ibatis2FormattingUtilities
+					sb.append(MyBatis3FormattingUtilities
 							.getParameterClause(introspectedColumn));
 				}
 
@@ -85,14 +83,14 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 					effdateColumn = introspectedColumn;
 					if (isInactiveColumnExist(introspectedTable)) {
 						sb.append("<![CDATA[ "
-								+ Ibatis2FormattingUtilities
+								+ MyBatis3FormattingUtilities
 										.getAliasedEscapedColumnName(introspectedColumn));
 						sb.append(" <= ");
-						sb.append(Ibatis2FormattingUtilities
+						sb.append(MyBatis3FormattingUtilities
 								.getParameterClause(introspectedColumn) + "]]>");
 					} else {
 						sb.append("<![CDATA[ "
-								+ Ibatis2FormattingUtilities
+								+ MyBatis3FormattingUtilities
 										.getAliasedEscapedColumnName(introspectedColumn));
 						sb.append(" = ");
 						sb.append("(select max(EFFDATE) from ");
@@ -108,17 +106,17 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 								isAnd = true;
 							}
 							if (!"EFFDATE".equals(item.getActualColumnName())) {
-								sb.append(Ibatis2FormattingUtilities
+								sb.append(MyBatis3FormattingUtilities
 										.getAliasedEscapedColumnName(item));
 								sb.append(" = "); //$NON-NLS-1$
-								sb.append(Ibatis2FormattingUtilities
+								sb.append(MyBatis3FormattingUtilities
 										.getParameterClause(item));
 							}
 							if ("EFFDATE".equals(item.getActualColumnName())) {
-								sb.append(Ibatis2FormattingUtilities
+								sb.append(MyBatis3FormattingUtilities
 										.getAliasedEscapedColumnName(item));
 								sb.append(" <= ");
-								sb.append(Ibatis2FormattingUtilities
+								sb.append(MyBatis3FormattingUtilities
 										.getParameterClause(item));
 							}
 						}
@@ -133,7 +131,7 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 				sb.setLength(0);
 				sb.append("  and ");
 				sb.append("<![CDATA[ (inactivedate is null or inactivedate >"
-						+ Ibatis2FormattingUtilities
+						+ MyBatis3FormattingUtilities
 								.getParameterClause(effdateColumn) + ")");
 				sb.append("]]>");
 				e.addElement(new TextElement(sb.toString()));
@@ -153,7 +151,6 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 			TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
 		if (isNeedEffectiveQuery(introspectedTable)) {
 			interfaze.addMethod(getMethodShell(introspectedTable));
-
 		}
 		return true;
 	}
@@ -161,9 +158,7 @@ public class Mybatis3_EffDateQueryPlugin extends PluginAdapter {
 	protected XmlElement getBaseColumnListElement(
 			IntrospectedTable introspectedTable) {
 		XmlElement answer = new XmlElement("include");
-		answer.addAttribute(new Attribute("refid", introspectedTable
-				.getIbatis2SqlMapNamespace()
-				+ "." + introspectedTable.getBaseColumnListId())); //$NON-NLS-1$
+		answer.addAttribute(new Attribute("refid",introspectedTable.getBaseColumnListId())); //$NON-NLS-1$
 		return answer;
 	}
 

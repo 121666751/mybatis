@@ -37,7 +37,7 @@ public class Mybatis3_SequenceGeneratorPlugin extends PluginAdapter {
 		if (value != null && !"".equals(value)) {
 			XmlElement e = new XmlElement("select");
 			e.addAttribute(new Attribute("id", "getNext_" + value));
-			e.addAttribute(new Attribute("resultClass", "java.lang.Long"));
+			e.addAttribute(new Attribute("resultType", "java.lang.Long"));
 			context.getCommentGenerator().addComment(e);
 			StringBuilder sb = new StringBuilder();
 			//目前统一使用dual作为伪表，各数据库将伪表的别名定位dual即可
