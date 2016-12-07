@@ -236,7 +236,9 @@
 		<table tableName="FUNDTYPDTLGLACCT" />
 		<table tableName="GENTYP" />
 		<table tableName="GETBRIBERYREG" />
-		<table tableName="GLACCT" />
+		<table tableName="GLACCT" >
+		<property name="sequence" value="TXNSEQID_SEQ" />
+		</table>
 		<table tableName="GLACCTPROOFCOPYHIST" />
 		<table tableName="GLACCTPROOFHIST" />
 		<table tableName="GLACCTTITLE" />
@@ -450,8 +452,11 @@
 		<table tableName="VALRULETYP" />
 		<table tableName="VOUCHTYP" />
 		<table tableName="WRNFLAG" /> -->
-        <table tableName="CHANRTXN">
-			<property name="sequence" value="TXNSEQID_SEQ" />
+<!--         <table tableName="CHANRTXN"> -->
+<!-- 			<property name="sequence" value="TXNSEQID_SEQ" /> -->
+<!-- 		</table> -->
+		<table tableName="GLACCT" >
+		<property name="sequence" value="PK_GLACCT" />
 		</table>
 	</context>
 </generatorConfiguration>
