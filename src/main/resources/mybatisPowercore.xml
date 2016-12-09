@@ -3,7 +3,10 @@
 <generatorConfiguration>
 	<!-- <properties resource="META-INF/config.properties" /> -->
 	<context id="productRelease">
-
+		<!-- 生成缓存 -->
+<!-- 		<plugin
+			type="com.csii.bank.core.generator.plugins.MyBatis3_CachePlugin"></plugin> -->
+			
 		<!-- 为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 mybatis3版本需要将javaClientGenerator的type属性指定为XMLMAPPER -->
 		<plugin
 			type="com.csii.bank.core.generator.plugins.MyBatis3_DatelastmaintPlugin"></plugin>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- <properties resource="META-INF/config.properties" /> -->
+     <!--数据库驱动-->
+    <!--  <classPathEntry    location="mysql-connector-java-5.1.30.jar"/> -->
+	<context id="iiapRelease">
+		<!-- 为sqlmap文件中的datelastmaint字段统一赋值为sysdate；并且不生成对应的set方法 mybatis3版本需要将javaClientGenerator的type属性指定为XMLMAPPER -->
+		<plugin
+			type="com.csii.bank.core.generator.plugins.MyBatis3_DatelastmaintPlugin"></plugin>
+			
+		<!-- 生成缓存 -->
+<!-- 		<plugin
+			type="com.csii.bank.core.generator.plugins.MyBatis3_CachePlugin"></plugin> -->
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/ICIFDB"
+			userId="icif" password="1234" />
+<!-- 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver" -->
+<!-- 			connectionURL="jdbc:db2://172.16.0.70:60000/producmo:currentSchema=PRUSER;" -->
+<!-- 			userId="pruser" password="pruser" /> -->
+<!-- 		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver" -->
+<!-- 			connectionURL="jdbc:db2://192.168.0.174:50000/producmo:currentSchema=PRUSER;" -->
+<!-- 			userId="administrator" password="ly" /> -->
+
+		<javaModelGenerator targetPackage="com.csii.iiap.dto.generate"
+			targetProject="csii-iiap-dao" />
+
+		<sqlMapGenerator targetPackage="com.csii.iiap.dao.generate.mapper"
+			targetProject="csii-iiap-dao" />
+
+		<!-- 对于mybatis来说，即生成Mapper接口，注意，如果没有配置该元素，那么默认不会生成Mapper接口 targetPackage/targetProject:同javaModelGenerator 
+			type：选择怎么生成mapper接口（在MyBatis3/MyBatis3Simple下）： 
+			1，ANNOTATEDMAPPER：会生成使用Mapper接口+Annotation的方式创建（SQL生成在annotation中），不会生成对应的XML； 
+			2，MIXEDMAPPER：使用混合配置，会生成Mapper接口，并适当添加合适的Annotation，但是XML会生成在XML中； 
+			3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML； 
+			注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER 
+		-->
+		<javaClientGenerator targetPackage="com.csii.iiap.dao.generate"
+			targetProject="csii-iiap-dao" type="XMLMAPPER" />
+
+
+ 		<!-- <table tableName="ACCESSORENTITLE"></table>
+		<table tableName="ADDRESS"></table>
+		<table tableName="ASSOCIATEDATTRIB"></table>
+		<table tableName="ASSOCIATEDOBJECT"></table>
+		<table tableName="BATCH_PARAMETER_CONFIG"></table>
+		<table tableName="BATCH_TRANS_TASK"></table>
+		<table tableName="BUSINESS_MOD_SPEC"></table>
+		<table tableName="CDRELTP"></table>
+		<table tableName="CONTACCT"></table>
+		<table tableName="CONTACTMETHOD"></table>
+		<table tableName="DATAACTION"></table>
+		<table tableName="DATAASSOCIATION"></table>
+		<table tableName="ECIF_FUNC"></table>
+		<table tableName="ECIF_PARAM"></table>
+		<table tableName="ECIF_ROLE_FUNC"></table>
+		<table tableName="ECIF_ROLE"></table>
+		<table tableName="ECIF_SERVER_IP"></table>
+		<table tableName="ECIF_TRANS_HISTORY"></table>
+		<table tableName="ECIF_TRANS_STATS"></table>
+		<table tableName="ECIF_USER"></table>
+		<table tableName="ENTITLEMENT"></table>
+		<table tableName="GROUPACCESS"></table>
+		<table tableName="GROUPPROFILE"></table>
+		<table tableName="ICIF_SEQNO"></table>
+		<table tableName="IDCHECK"></table>
+		<table tableName="ORG_SIGNIN"></table>
+		<table tableName="ORG_USER_CONT"></table>
+		<table tableName="PARAMETER"></table>
+		<table tableName="PERS_CHANNEL_SIGNIN"></table>
+		<table tableName="PERS_CONTACTREL"></table>
+		<table tableName="PERS_EQUIPMENT_HIST"></table>
+		<table tableName="PERS_RECOMMEND"></table>
+		<table tableName="PERS_SIGNIN"></table>
+		<table tableName="PERS_USER_CONT"></table>
+		<table tableName="PERS_USER_ID_NUM"></table>
+		<table tableName="PERS_USER_PASSWORD"></table>
+		<table tableName="PERS_USER_PIC_HIS"></table>
+		<table tableName="ROV_ASSO_ATTR"></table>
+		<table tableName="ROV_ASSO_OBJ"></table>
+		<table tableName="ROV_CHANNEL_AUTH"></table>
+		<table tableName="ROV_DATA_ASSO"></table>
+		<table tableName="ROV_EOBJ_ATTR"></table>
+		<table tableName="ROV_EOBJ"></table>
+		<table tableName="ROV_GROUP_AUTH"></table>
+		<table tableName="ROV_GROUP_RULE"></table>
+		<table tableName="ROV_GROUP"></table>
+		<table tableName="ROV_GRP_REQ"></table>
+		<table tableName="ROV_GRP_TABLE"></table>
+		<table tableName="ROV_GRP_TRANS"></table>
+		<table tableName="ROV_REQUESTER"></table>
+		<table tableName="ROV_RULE_ACTION"></table>
+		<table tableName="ROV_RULE"></table>
+		<table tableName="ROV_TABLE"></table>
+		<table tableName="ROV_TRANS_TP"></table>
+		<table tableName="SIGN_AGREEMENT"></table>
+		<table tableName="SRCBBLACKLIST"></table>
+		<table tableName="TRAN_GLIDE_HIS"></table>
+		<table tableName="TRAN_GLIDE"></table>
+		<table tableName="TRAN_MONITOR_HIS"></table>
+		<table tableName="TRAN_MONITOR"></table>
+		<table tableName="USER_BANK_CARD"></table>
+		<table tableName="USER_CONT_LOG"></table>
+		<table tableName="USER_CONT"></table>
+		<table tableName="USER_CONTADDRESS"></table>
+		<table tableName="USER_MEDI"></table>
+		<table tableName="USER_VERIFY"></table>
+		<table tableName="XORG_USER_CONT"></table> -->
+	
+	</context>
+</generatorConfiguration>

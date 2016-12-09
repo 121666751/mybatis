@@ -14,6 +14,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <ojdbc6.version>11.2.0.4</ojdbc6.version>
         <db2jcc4.version>4.14.111</db2jcc4.version>
+        <mysql.version>5.1.30</mysql.version>
     </properties>
     
     <repositories>
@@ -69,5 +70,10 @@
             <artifactId>db2jcc4</artifactId>
             <version>${db2jcc4.version}</version>
         </dependency>
+         <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
     </dependencies>
 </project>
