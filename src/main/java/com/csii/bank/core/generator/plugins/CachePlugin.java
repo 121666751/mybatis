@@ -55,7 +55,7 @@ public class CachePlugin extends PluginAdapter {
 
 		Attribute id = new Attribute("id", "cacheConfig");
 		element.addAttribute(id);
-		Attribute type = new Attribute("type", "LRU");
+		Attribute type = new Attribute("type", "PCCC");
 		element.addAttribute(type);
 		Attribute readOnly = new Attribute("readOnly", "true");
 		element.addAttribute(readOnly);

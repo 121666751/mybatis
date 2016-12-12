@@ -32,7 +32,7 @@ public class MyBatis3_CachePlugin extends PluginAdapter {
 		XmlElement element = new XmlElement("cache");
 		context.getCommentGenerator().addComment(element);
 
-		Attribute id = new Attribute("type", "CustomCache");
+		Attribute id = new Attribute("type", "PCCC");
 		element.addAttribute(id);
 
 		document.getRootElement().addElement(0, element);
