@@ -189,6 +189,12 @@
 		<table tableName="CORPGRPRTXN" />
 		<table tableName="CORPSTAT" />
 		<table tableName="CORPTYP" />
+		<table tableName="COUPON" >
+			<property name="sequence" value="COUPON_PK" />
+		</table>
+		<table tableName="COUPONREG" >
+			<property name="sequence" value="CONPONREG_PK" />
+		</table>
 		<table tableName="COUPONGETHIST" />
 		<table tableName="COUPONUSEHIST" />
 		<table tableName="CTRLMETH" />
