@@ -193,7 +193,7 @@
 			<property name="sequence" value="COUPON_PK" />
 		</table>
 		<table tableName="COUPONREG" >
-			<property name="sequence" value="CONPONREG_PK" />
+			<property name="sequence" value="COUPONREG_PK" />
 		</table>
 		<table tableName="COUPONGETHIST" />
 		<table tableName="COUPONUSEHIST" />
