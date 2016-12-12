@@ -34,9 +34,13 @@
 		<!-- <table tableName="ACCT" />
 		<table tableName="ACCTACCTBALTYPCALCVARVALUE" />
 		<table tableName="ACCTACCTCALCVARVALUE" />
-		<table tableName="ACCTACCTCTRL" />
+		<table tableName="acctacctctrl">   
+ 			<property name="sequence" value="CTRLSEQNO_PK" /> 
+		</table>
 		<table tableName="ACCTACCTCTRLREG" />
-		<table tableName="ACCTACCTHOLD" />
+		<table tableName="acctaccthold"> 
+		<property name="sequence" value="acctaccthold_holdseqnbr" /> 
+		</table
 		<table tableName="ACCTACCTHOLDREG" />
 		<table tableName="ACCTACCTROLE" />
 		<table tableName="ACCTACCTSTATHIST" />
@@ -246,7 +250,7 @@
 		<table tableName="GENTYP" />
 		<table tableName="GETBRIBERYREG" />
 		<table tableName="GLACCT" >
-		<property name="sequence" value="TXNSEQID_SEQ" />
+		<property name="sequence" value="PK_GLACCT" />
 		</table>
 		<table tableName="GLACCTPROOFCOPYHIST" />
 		<table tableName="GLACCTPROOFHIST" />
