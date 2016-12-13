@@ -277,8 +277,12 @@
 		<table tableName="INTMETH" />
 		<table tableName="INTRULETYP" />
 		<table tableName="ITLAPPLYREG" />
-		<table tableName="ITLHUPREG" />
-		<table tableName="ITLHUPRELREG" />
+		<table tableName="ITLHUPREG">
+  			<property name="sequence" value="HUPSEQNBR_SEQ" />
+		</table>
+		<table tableName="ITLHUPRELREG">
+  			<property name="sequence" value="HUPRELSEQNBR_SEQ" />
+		</table>
 		<table tableName="ITLLIQUIDATEHIST" />
 		<table tableName="ITLRTXN" />
 		<table tableName="ITLTRANSFER" />
@@ -468,8 +472,9 @@
 <!--         <table tableName="CHANRTXN"> -->
 <!-- 			<property name="sequence" value="TXNSEQID_SEQ" /> -->
 <!-- 		</table> -->
-		<table tableName="GLACCT" >
-		<property name="sequence" value="PK_GLACCT" />
+
+		<table tableName="ITLHUPRELREG">
+  			<property name="sequence" value="HUPRELSEQNBR_SEQ" />
 		</table>
 	</context>
 </generatorConfiguration>
