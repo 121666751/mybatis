@@ -400,6 +400,7 @@
 		<table tableName="PERS" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
 			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" >
 			<property name="sequence" value="PERSNBR_PK" />
+		</table>	
 		<table tableName="PERSADDRUSE" />
 		<table tableName="PERSBLACKLIST" />
 		<table tableName="PERSCALCVAR" />
@@ -493,6 +494,7 @@
 		<table tableName="VALRULETYP" />
 		<table tableName="VOUCHTYP" />
 		<table tableName="WRNFLAG" />
+		
 
 	</context>
 </generatorConfiguration>
