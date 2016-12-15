@@ -44,7 +44,10 @@
 		</table>
 		<table tableName="ACCTACCTHOLDREG" />
 		<table tableName="ACCTACCTROLE" />
-		<table tableName="ACCTACCTSTATHIST" />
+		<table tableName="ACCTACCTSTATHIST">
+			<generatedKey column="TIMEUNIQUEEXTN"
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('ACCTACCTSTATHISTTIME_PK') FROM DUAL" />
+		</table>
 		<table tableName="ACCTAPPL" />
 		<table tableName="ACCTAUTOLOANPMTINFO" />
 		<table tableName="ACCTAUTOLOANPMTINFOBALCATTYP" />
