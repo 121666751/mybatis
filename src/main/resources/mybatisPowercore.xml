@@ -30,8 +30,9 @@
 		<javaClientGenerator targetPackage="com.csii.bank.core.dao.generate.mapper"
 			targetProject="powercore-dao" type="XMLMAPPER" />
 
-		<!-- <table tableName="Mjaccttyp" /> -->
-		<!-- <table tableName="ACCT" />
+		<table tableName="Mjaccttyp" />
+		<table tableName="CARDBININFO" />
+		<table tableName="ACCT" />
 		<table tableName="ACCTACCTBALTYPCALCVARVALUE" />
 		<table tableName="ACCTACCTCALCVARVALUE" />
 		<table tableName="acctacctctrl">   
@@ -40,7 +41,7 @@
 		<table tableName="ACCTACCTCTRLREG" />
 		<table tableName="acctaccthold"> 
 		<property name="sequence" value="acctaccthold_holdseqnbr" /> 
-		</table
+		</table>
 		<table tableName="ACCTACCTHOLDREG" />
 		<table tableName="ACCTACCTROLE" />
 		<table tableName="ACCTACCTSTATHIST" />
@@ -64,9 +65,15 @@
 		<table tableName="ACCTCTRLREASON" />
 		<table tableName="ACCTCYCLE" />
 		<table tableName="ACCTDEDUCT" />
-		<table tableName="ACCTDEP" />
+		<table tableName="ACCTDEP" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false"
+			enableSelectByPrimaryKey="false">
+			<property name="sequence" value="ACCTNBR_PK" /> 
+		</table>
 		<table tableName="ACCTFEEREG" />
-		<table tableName="ACCTGRP" />
+		<table tableName="ACCTGRP">
+			<property name="sequence" value="ACCTGRPNBR_PK" /> 
+		</table>
 		<table tableName="ACCTGRPACCT" />
 		<table tableName="ACCTGRPACCTGRPCALCVARVALUE" />
 		<table tableName="ACCTGRPCALCTYP" />
@@ -113,7 +120,9 @@
 		<table tableName="ACCTTRANSFERTYP" />
 		<table tableName="ACCTUSERFIELD" />
 		<table tableName="ACCTWRN" />
-		<table tableName="ADDR" />
+		<table tableName="ADDR">
+			<property name="sequence" value="ADDRNBR_PK" /> 
+		</table>
 		<table tableName="ADDRUSE" />
 		<table tableName="ADVISE_INDEX" />
 		<table tableName="ADVISE_INSTANCE" />
@@ -182,8 +191,12 @@
 		<table tableName="CALCVARVALUE" />
 		<table tableName="CALPERIOD" />
 		<table tableName="CARDAGREEMENTTYP" />
-		<table tableName="CARDVERIFYREG" />
-		<table tableName="CHANRTXN" />
+		<table tableName="CARDVERIFYREG">
+			<property name="sequence" value="PK_CARDVERIFYREG" /> 
+		</table>
+		<table tableName="CHANRTXN" >
+			<property name="sequence" value="TXNSEQID_SEQ" /> 
+		</table>
 		<table tableName="CITY" />
 		<table tableName="COLMETH" />
 		<table tableName="COLTYP" />
@@ -199,7 +212,9 @@
 		<table tableName="COUPONREG" >
 			<property name="sequence" value="COUPONREG_PK" />
 		</table>
-		<table tableName="COUPONGETHIST" />
+		<table tableName="COUPONGETHIST">
+			<property name="sequence" value="COUPONSEQ" />
+		</table>
 		<table tableName="COUPONUSEHIST" />
 		<table tableName="CTRLMETH" />
 		<table tableName="CTRLREASON" />
@@ -277,8 +292,12 @@
 		<table tableName="INTMETH" />
 		<table tableName="INTRULETYP" />
 		<table tableName="ITLAPPLYREG" />
-		<table tableName="ITLHUPREG" />
-		<table tableName="ITLHUPRELREG" />
+		<table tableName="ITLHUPREG">
+  			<property name="sequence" value="HUPSEQNBR_SEQ" />
+		</table>
+		<table tableName="ITLHUPRELREG">
+  			<property name="sequence" value="HUPRELSEQNBR_SEQ" />
+		</table>
 		<table tableName="ITLLIQUIDATEHIST" />
 		<table tableName="ITLRTXN" />
 		<table tableName="ITLTRANSFER" />
@@ -289,7 +308,10 @@
 		<table tableName="LOWBALOPTTYP" />
 		<table tableName="LUCKMEDI" />
 		<table tableName="MARKETRTXNTYP" />
-		<table tableName="MEDI" />
+		<table tableName="MEDI" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
+			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" >
+			<property name="sequence" value="MEDISEQ_PK" />
+		</table>
 		<table tableName="MEDIACCT" />
 		<table tableName="MEDIACCTGRP" />
 		<table tableName="MEDIACCTHIST" />
@@ -378,7 +400,6 @@
 		<table tableName="PERS" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
 			enableUpdateByExample="false" enableUpdateByPrimaryKey="false" >
 			<property name="sequence" value="PERSNBR_PK" />
-		</table>
 		<table tableName="PERSADDRUSE" />
 		<table tableName="PERSBLACKLIST" />
 		<table tableName="PERSCALCVAR" />
@@ -390,7 +411,9 @@
 		<table tableName="PERSINTEREST" />
 		<table tableName="PERSPERSCALCVARVALUE" />
 		<table tableName="PERSPERSREL" />
-		<table tableName="PERSPHONE" />
+		<table tableName="PERSPHONE">
+			<property name="sequence" value="PHONESEQ_PK" /> 
+		</table>
 		<table tableName="PERSREL" />
 		<table tableName="PERSWHITELIST" />
 		<table tableName="PHONEUSE" />
@@ -447,7 +470,9 @@
 		<table tableName="RTXNUSERFIELD" />
 		<table tableName="SCHEDULEPRICE" />
 		<table tableName="SHARERULE" />
-		<table tableName="SMSNOTIFYREG" />
+		<table tableName="SMSNOTIFYREG">
+			<property name="sequence" value="SMSNOTIFYREG_PK" /> 
+		</table>
 		<table tableName="SPREADTYP" />
 		<table tableName="STARTDATETYP" />
 		<table tableName="STMTSTAT" />
@@ -467,12 +492,7 @@
 		<table tableName="VALRULE" />
 		<table tableName="VALRULETYP" />
 		<table tableName="VOUCHTYP" />
-		<table tableName="WRNFLAG" /> -->
-<!--         <table tableName="CHANRTXN"> -->
-<!-- 			<property name="sequence" value="TXNSEQID_SEQ" /> -->
-<!-- 		</table> -->
-		<table tableName="GLACCT" >
-		<property name="sequence" value="PK_GLACCT" />
-		</table>
+		<table tableName="WRNFLAG" />
+
 	</context>
 </generatorConfiguration>
