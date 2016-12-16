@@ -69,7 +69,7 @@
 		<table tableName="ACCTCYCLE" />
 		<table tableName="ACCTDEDUCT">
 			<generatedKey column="DEDUCTSEQNO"
-				sqlStatement="select csii_sequencenextvalue('ACCTDEDUCT_DEDUCTSEQNO') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('ACCTDEDUCT_DEDUCTSEQNO') FROM  DUAL" />
 		</table>
 		<table tableName="ACCTDEP" enableDeleteByExample="false" enableDeleteByPrimaryKey="false"
 			enableUpdateByExample="false" enableUpdateByPrimaryKey="false"
@@ -92,7 +92,7 @@
 		<table tableName="ACCTITLTRANSFER" />
 		<table tableName="ACCTKXHREG">
 			<generatedKey column="ACCTKXHSEQNBR"
-				sqlStatement="select csii_sequencenextvalue('ACCTKXHREG_SEQNBR') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('ACCTKXHREG_SEQNBR') FROM DUAL" />
 		</table>
 		<table tableName="ACCTLOAN" />
 		<table tableName="ACCTLOANDISB" />
@@ -139,7 +139,7 @@
 		<table tableName="AGREEMENT" />
 		<table tableName="AGREEMENTACCT">
 			<generatedKey column="AGREEMENTSEQNO"
-				sqlStatement="select csii_sequencenextvalue('AGREEMENTACCT_PK') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('AGREEMENTACCT_PK') FROM DUAL" />
 		</table>
 		<table tableName="AGREEMENTSTAT" />
 		<table tableName="AGREEMENTTYP" />
@@ -182,7 +182,7 @@
 		<table tableName="BRANCHTYP" />
 		<table tableName="BRIBERYPREPAREREG">
 			<generatedKey column="SEQNBR"
-				sqlStatement="select csii_sequencenextvalue('BRIBERYPREPAREREG_SEQNBR') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('BRIBERYPREPAREREG_SEQNBR') FROM DUAL" />
 		</table>
 		<table tableName="BRIBERYSHAREREG" />
 		<table tableName="BRIBERYSTAT" />
@@ -192,12 +192,12 @@
 		<table tableName="CALCCAT" />
 		<table tableName="CALCSCHED">
 			<generatedKey column="CALCSCHEDNBR"
-				sqlStatement="select csii_sequencenextvalue('CALCSCHEDNBR_SEQ') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('CALCSCHEDNBR_SEQ') FROM DUAL" />
 		</table>
 		<table tableName="CALCSCHEDCAT" />
 		<table tableName="CALCSCHEDPRICRATE">
 			<generatedKey column="SEQNBR"
-				sqlStatement="select csii_sequencenextvalue('CALCSCHEDPRICRATE_SEQNBR') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('CALCSCHEDPRICRATE_SEQNBR') FROM DUAL" />
 		</table>
 		<table tableName="CALCSCHEDPROP" />
 		<table tableName="CALCSCHEDPURP" />
@@ -286,13 +286,13 @@
 		<table tableName="GENTYP" />
 		<table tableName="GETBRIBERYREG" />
 		<table tableName="GLACCT" >
-		<property name="sequence" value="PK_GLACCT" />
+			<property name="sequence" value="PK_GLACCT" />
 		</table>
 		<table tableName="GLACCTPROOFCOPYHIST" />
 		<table tableName="GLACCTPROOFHIST" />
 		<table tableName="GLACCTTITLE" >
 			<generatedKey column="GLACCTTITLENBR"
-				sqlStatement="select csii_sequencenextvalue('PK_GLACCTTITLE') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('PK_GLACCTTITLE') FROM DUAL" />
 		</table>
 		<table tableName="GLACCTTYP" />
 		<table tableName="GLBUZSTAT" />
@@ -303,7 +303,7 @@
 		<table tableName="INTEGRALBINDCARD" />
 		<table tableName="INTEGRALEVENT">
 			<generatedKey column="EVENTNBR"
-				sqlStatement="select csii_sequencenextvalue('EVENTNBRSEQ_PK') from  SYSIBM.SYSDUMMY1" />
+				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('EVENTNBRSEQ_PK') FROM DUAL" />
 		</table>
 		<table tableName="INTEGRALREG" />
 		<table tableName="INTEGRALRULEEVENT" />
