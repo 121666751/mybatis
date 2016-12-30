@@ -191,8 +191,9 @@
 		<table tableName="CALCBALTYP" />
 		<table tableName="CALCCAT" />
 		<table tableName="CALCSCHED">
-			<generatedKey column="CALCSCHEDNBR"
-				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('CALCSCHEDNBR_SEQ') FROM DUAL" />
+<!-- 			<generatedKey column="CALCSCHEDNBR" -->
+<!-- 				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('CALCSCHEDNBR_SEQ') FROM DUAL" /> -->
+			<property name="sequence" value="CALCSCHEDNBR_SEQ" /> 
 		</table>
 		<table tableName="CALCSCHEDCAT" />
 		<table tableName="CALCSCHEDPRICRATE">
