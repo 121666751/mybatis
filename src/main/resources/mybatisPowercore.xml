@@ -266,6 +266,7 @@
 		<table tableName="EXPLAIN_STATEMENT" />
 		<table tableName="EXPLAIN_STREAM" />
 		<table tableName="EXTSYSACCT" />
+		<table tableName="EXTTRANSREG" />
 		<table tableName="FEECOMISREG" />
 		<table tableName="FEEDBACKMETH" />
 		<table tableName="FEEDBACKTYP" />
