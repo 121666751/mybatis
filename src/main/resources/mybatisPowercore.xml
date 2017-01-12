@@ -293,8 +293,8 @@
 		<table tableName="GLACCTPROOFCOPYHIST" />
 		<table tableName="GLACCTPROOFHIST" />
 		<table tableName="GLACCTTITLE" >
-			<generatedKey column="GLACCTTITLENBR"
-				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('PK_GLACCTTITLE') FROM DUAL" />
+<!-- 			<generatedKey column="GLACCTTITLENBR" -->
+<!-- 				sqlStatement="SELECT CSII_SEQUENCENEXTVALUE('PK_GLACCTTITLE') FROM DUAL" /> -->
 		</table>
 		<table tableName="GLACCTTYP" />
 		<table tableName="GLBUZSTAT" />
